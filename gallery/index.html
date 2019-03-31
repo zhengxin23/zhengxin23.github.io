@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
   
   <script src="/js/pace.min.js"></script>
+
+  
+    <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+    <script src="/lib/gitalk/gitalk.min.js"></script>
+  
+  
 </head>
 </html>
 <body>
@@ -48,7 +54,7 @@
     <ul class="article-albums-photos">
       
         <li class="article-albums-item" data-scroll-reveal>
-          <a class="article-albums-img fancybox" data-fancybox="images" data-caption="诺坎普球场" href="http://t10.baidu.com/it/u=4279561401,1906442135&fm=173&app=25&f=JPEG?w=639&h=399&s=5283E0A0E6F993CE7C983E190300E099" rel="gallery_cjtwuf72w00031wtuyh66y2w4" title="诺坎普球场">
+          <a class="article-albums-img fancybox" data-fancybox="images" data-caption="诺坎普球场" href="http://t10.baidu.com/it/u=4279561401,1906442135&fm=173&app=25&f=JPEG?w=639&h=399&s=5283E0A0E6F993CE7C983E190300E099" rel="gallery_cjtwwy71f0001sctuj1qmw1gh" title="诺坎普球场">
             <img class="lazy" data-original="http://t10.baidu.com/it/u=4279561401,1906442135&fm=173&app=25&f=JPEG?w=639&h=399&s=5283E0A0E6F993CE7C983E190300E099" itemprop="image" alt="诺坎普球场" width height>
           </a>
           
@@ -67,7 +73,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/gallery/index.html" data-id="cjtwuf72w00031wtuyh66y2w4" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/gallery/index.html" data-id="cjtwwy71f0001sctuj1qmw1gh" class="article-share-link">分享</a>
       
     </footer>
 
@@ -75,6 +81,30 @@
 
   
     
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a1188fe75d9adbe13962',
+      clientSecret: 'd632f088285dcedcbf4d2a99f8bb354532c86b0b',
+      repo: 'zhengxin23.github.io',
+      owner: 'zhengxin5@outlook.com',
+      admin: ['zhengxin5@outlook.com'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
 
   
 

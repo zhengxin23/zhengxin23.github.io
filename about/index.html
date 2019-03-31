@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
   
   <script src="/js/pace.min.js"></script>
+
+  
+    <link rel="stylesheet" href="/lib/gitalk/gitalk.css">
+    <script src="/lib/gitalk/gitalk.min.js"></script>
+  
+  
 </head>
 </html>
 <body>
@@ -53,7 +59,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/about/index.html" data-id="cjtwuf72u00011wtubxnoy72v" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/about/index.html" data-id="cjtwwy71i0003sctupuij2w8c" class="article-share-link">分享</a>
       
     </footer>
 
@@ -61,6 +67,30 @@
 
   
     
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a1188fe75d9adbe13962',
+      clientSecret: 'd632f088285dcedcbf4d2a99f8bb354532c86b0b',
+      repo: 'zhengxin23.github.io',
+      owner: 'zhengxin5@outlook.com',
+      admin: ['zhengxin5@outlook.com'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
 
   
 
