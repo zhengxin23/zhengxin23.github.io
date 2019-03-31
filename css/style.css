@@ -1097,7 +1097,7 @@ img {
   }
   .sidebar {
     right: 0;
-    background-color: #fff;
+    background-color: #405499;
   }
   .navbar-toggle {
     display: none;
@@ -1966,12 +1966,12 @@ pre .javascript .function {
 .navbar .nav .nav-item-link {
   display: block;
   padding: 1rem;
-  color: #172d3e;
+  color: #d2d2d2;
   text-decoration: none;
   cursor: pointer;
 }
 .navbar .nav .nav-item-link:hover {
-  color: #1594c6;
+  color: #fff;
 }
 .navbar .nav.nav-main .nav-item-link::before,
 .navbar .nav.nav-main .nav-item-link i.fe {
@@ -1980,18 +1980,6 @@ pre .javascript .function {
 }
 .navbar .nav.nav-main .nav-item-link::before {
   font-family: 'feathericon';
-}
-.navbar .nav.nav-main .nav-item:nth-child(1) .nav-item-link::before {
-  content: '\f12f';
-}
-.navbar .nav.nav-main .nav-item:nth-child(2) .nav-item-link::before {
-  content: '\f12a';
-}
-.navbar .nav.nav-main .nav-item:nth-child(3) .nav-item-link::before {
-  content: '\f1a9';
-}
-.navbar .nav.nav-main .nav-item:nth-child(4) .nav-item-link::before {
-  content: '\f174';
 }
 .navbar-bottom {
   position: absolute;
