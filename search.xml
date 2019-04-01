@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[hello, Hexo]]></title>
-    <url>%2F2019%2F03%2F30%2Fhello-Hexo%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[将已有项目绑定到git上]]></title>
+    <url>%2F2019%2F04%2F01%2F2019040101-git-create-repository%2F</url>
+    <content type="text"><![CDATA[1. 创建远程仓库 登录github，在上边创建一个仓库 复制仓库链接，比如为git@github.com:alex-my/some-project.git 2.初始化本地仓库进入本地项目执行以下命令123456// 初始化本地仓库git init// 添加全部文件git add .// 提交到本地仓库git commit -m “提交说明” 3.本地仓库与远程仓库绑定绑定到远程仓库，并提交1234// 绑定，并取一个别名，通常用origin，后面的地址是前边创建的远程仓库地址git remote add origin git@github.com:alex-my/some-project.git// 把本地仓库地址提交到远程仓库git push origin master 4.修改本地仓库，并提交到远程仓库假设修改了README.md文件在根目录或者在文件所在目录执行12345678910git add .// 查看变动git status// 提交到本地仓库git commit -m “modify reade.md”// 如果是多人合作的项目,请先pullgit pull// 推送到远程仓库(第一个使用默认,作用和第一个一样)git pushgit push origin master 5.仓库别名如果有多个仓库或者多个分支，在推送或者拉取的时候需要注意12git pull 仓库别名 仓库分支git push 仓库别名 仓库分支 遇到问题,如下图解决方法：git push -f origin master]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
