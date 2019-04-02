@@ -1048,7 +1048,7 @@ img {
   right: -10rem;
   bottom: 0;
   width: 10rem;
-  background-color: #f4f4f4;
+  background-color: #405499;
 }
 .sidebar.on {
   right: 0;
@@ -1980,6 +1980,9 @@ pre .javascript .function {
 }
 .navbar .nav.nav-main .nav-item-link::before {
   font-family: 'feathericon';
+}
+.navbar .nav.nav-main .nav-item:hover {
+  background-color: #102469;
 }
 .navbar-bottom {
   position: absolute;
