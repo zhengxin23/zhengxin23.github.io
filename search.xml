@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《微信小程序运营实战》的阅读感想]]></title>
+    <url>%2F2019%2F04%2F02%2F20190402-read-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%90%A5%E5%AE%9E%E6%88%98%2F</url>
+    <content type="text"><![CDATA[page 136 例如，张小龙介绍小程序时提到的汽车站购票场景中，用户扫描小程序二维码的概率远高于线上。这其实相当于购票小程序分享了汽车客运站所独占的用户时间，从而使用户更愿意关注和使用此种场景下的小程序。抢占用户线下的时间片段，同时满足将商业致于无形的理念]]></content>
+      <tags>
+        <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[将已有项目绑定到git上]]></title>
     <url>%2F2019%2F04%2F01%2F2019040101-git-create-repository%2F</url>
     <content type="text"><![CDATA[1. 创建远程仓库 登录github，在上边创建一个仓库 复制仓库链接，比如为git@github.com:alex-my/some-project.git 2.初始化本地仓库进入本地项目执行以下命令123456// 初始化本地仓库git init// 添加全部文件git add .// 提交到本地仓库git commit -m “提交说明” 3.本地仓库与远程仓库绑定绑定到远程仓库，并提交1234// 绑定，并取一个别名，通常用origin，后面的地址是前边创建的远程仓库地址git remote add origin git@github.com:alex-my/some-project.git// 把本地仓库地址提交到远程仓库git push origin master 4.修改本地仓库，并提交到远程仓库假设修改了README.md文件在根目录或者在文件所在目录执行12345678910git add .// 查看变动git status// 提交到本地仓库git commit -m “modify reade.md”// 如果是多人合作的项目,请先pullgit pull// 推送到远程仓库(第一个使用默认,作用和第一个一样)git pushgit push origin master 5.仓库别名如果有多个仓库或者多个分支，在推送或者拉取的时候需要注意12git pull 仓库别名 仓库分支git push 仓库别名 仓库分支 遇到问题,如下图解决方法：git push -f origin master]]></content>
