@@ -1576,7 +1576,7 @@ img {
 .article-albums-photos .article-albums-item .article-albums-caption {
   display: block;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
   text-align: center;
 }
 @media (min-width: 576px) {
