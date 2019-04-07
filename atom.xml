@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengxin23.github.io/"/>
-  <updated>2019-04-07T01:41:05.499Z</updated>
+  <updated>2019-04-07T02:39:17.941Z</updated>
   <id>https://zhengxin23.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第一次创建.NetCore控制台程序编译失败问题</title>
+    <link href="https://zhengxin23.github.io/2019/04/07/20190407-dotnetcore-app-first/"/>
+    <id>https://zhengxin23.github.io/2019/04/07/20190407-dotnetcore-app-first/</id>
+    <published>2019-04-07T02:16:26.000Z</published>
+    <updated>2019-04-07T02:39:17.941Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>随着微软对.NetCore的不断推进发展，作为.Net阵营的开发人员，开始着手跟上脚步学习.NetCore</p></blockquote><h3 id="创建-NetCore-控制台程序"><a href="#创建-NetCore-控制台程序" class="headerlink" title="创建 .NetCore 控制台程序"></a>创建 .NetCore 控制台程序</h3><p>第一次创建控制台程序，编译时出现了如下问题,<br>依赖项出现黄色叹号警告，很多程序库未引用。有点让人摸不着头脑，想首次来个”hello, world”就给抛出难题<br><a id="more"></a><br><img src="https://i.loli.net/2019/04/07/5ca95e569a634.png" alt></p><p>其中一项错误为：</p><blockquote><p>找不到资产文件”…\project.assets.json”。运行NuGet包还原以生成此文件。</p></blockquote><p>猜想应该与 NuGet 程序包管理问题相关。</p><h3 id="dotnet-命令创建控制台程序"><a href="#dotnet-命令创建控制台程序" class="headerlink" title="dotnet 命令创建控制台程序"></a>dotnet 命令创建控制台程序</h3><p>dotnet命令创建控制台项目三步曲：</p><ul><li><code>dotnet new console - o netcore2</code></li><li><code>dotnet restore netcore2\netcore2.csproj</code></li><li><code>dotnet run -p netcore2\netcore2.csproj</code></li></ul><p>使用命令创建的项目能正常编译运行<br><img src="https://i.loli.net/2019/04/07/5ca9608cf143f.png" alt="dotnetcore4.png"></p><p>查看命令行与vs创建项目的过程，有区别的可能为第二步：<br><code>dotnet restore</code> - 恢复项目的依赖项和工具。</p><p>用该命令应用于用vs创建的控制台项目后，可以正常编译及执行了。<br>但按道理不可能每次使用vs创建项目都需要使用命令行执行<code>dotnet restore</code>一下吧，<br>这也太麻烦了。</p><h3 id="NuGet-包管理器设置"><a href="#NuGet-包管理器设置" class="headerlink" title="NuGet 包管理器设置"></a>NuGet 包管理器设置</h3><p>几经周折，找到原来vs上有设置程序包还原的选项，可以依据项目自动恢复依赖项和工具。<br><img src="https://i.loli.net/2019/04/07/5ca95e5675066.png" alt="dotnetcore2.png"><br>将如上图的两个选项勾选-确定。</p><h3 id="终于编译并执行成功"><a href="#终于编译并执行成功" class="headerlink" title="终于编译并执行成功"></a>终于编译并执行成功</h3><p>NuGet包管理器设置好后，“重新生成”控制台项目，终于可以编译和执行成功了。<br><img src="https://i.loli.net/2019/04/07/5ca95e5695cb9.png" alt="dotnetcore3.png"></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li>不知道VS为什么不自动勾选后这两个选项，让开发人员省点心……</li><li>Hello .NetCore 解锁完成</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;随着微软对.NetCore的不断推进发展，作为.Net阵营的开发人员，开始着手跟上脚步学习.NetCore&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;创建-NetCore-控制台程序&quot;&gt;&lt;a href=&quot;#创建-NetCore-控制台程序&quot; class=&quot;headerlink&quot; title=&quot;创建 .NetCore 控制台程序&quot;&gt;&lt;/a&gt;创建 .NetCore 控制台程序&lt;/h3&gt;&lt;p&gt;第一次创建控制台程序，编译时出现了如下问题,&lt;br&gt;依赖项出现黄色叹号警告，很多程序库未引用。有点让人摸不着头脑，想首次来个”hello, world”就给抛出难题&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term=".NetCore" scheme="https://zhengxin23.github.io/tags/NetCore/"/>
+    
+  </entry>
   
   <entry>
     <title>.Net性能测试工具BenchmarkDotnet</title>
