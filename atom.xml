@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengxin23.github.io/"/>
-  <updated>2019-04-07T02:39:17.941Z</updated>
+  <updated>2019-04-08T12:04:02.386Z</updated>
   <id>https://zhengxin23.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《微信小程序运营实战》的阅读感想</title>
+    <link href="https://zhengxin23.github.io/2019/04/08/20190402-read-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%90%A5%E5%AE%9E%E6%88%98/"/>
+    <id>https://zhengxin23.github.io/2019/04/08/20190402-read-微信小程序运营实战/</id>
+    <published>2019-04-08T12:00:00.000Z</published>
+    <updated>2019-04-08T12:04:02.386Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>page 136</p><blockquote><p>例如，张小龙介绍小程序时提到的汽车站购票场景中，用户扫描小程序二维码的概率远高于线上。这其实相当于购票小程序分享了汽车客运站所独占的用户时间，从而使用户更愿意关注和使用此种场景下的小程序。</p></blockquote></blockquote><p>抢占用户线下的时间片段，同时满足将商业致于无形的理念。</p><blockquote><p>page 167</p><blockquote><p>很多人一辈子都未必会去电影院看一场电影或者去演唱会现场听音乐，这也并非是因为他们的购买力较低，而是因为他们更喜欢在乘坐公交车、排队付款等碎片化的场景中随时随地地获取这些内容。例如，部分人喜欢在洗澡的时候听音乐，部分人喜欢在乘坐公交车时看动漫，还有人喜欢边吃饭边看视频……将自己感兴趣的内容与生活场景进行搭配并组合后，可以让他们的生活变得更加丰富多彩。</p></blockquote></blockquote><p>当代人生活中碎片化的时间越来越普遍，小程序的轻快特性正好适合嵌入到这些碎片时间里。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;page 136&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;例如，张小龙介绍小程序时提到的汽车站购票场景中，用户扫描小程序二维码的概率远高于线上。这其实相当于购票小程序分享了汽车客运站所独占的用户时间，从而使用户更愿意关注和使用此种场景下的小程序。&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="读书" scheme="https://zhengxin23.github.io/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>第一次创建.NetCore控制台程序编译失败问题</title>
@@ -63,32 +89,6 @@
       <category term="性能" scheme="https://zhengxin23.github.io/tags/%E6%80%A7%E8%83%BD/"/>
     
       <category term="BenchmarkDotnet" scheme="https://zhengxin23.github.io/tags/BenchmarkDotnet/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《微信小程序运营实战》的阅读感想</title>
-    <link href="https://zhengxin23.github.io/2019/04/02/20190402-read-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%90%A5%E5%AE%9E%E6%88%98/"/>
-    <id>https://zhengxin23.github.io/2019/04/02/20190402-read-微信小程序运营实战/</id>
-    <published>2019-04-02T11:54:24.000Z</published>
-    <updated>2019-04-08T12:01:15.929Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>page 136</p><blockquote><p>例如，张小龙介绍小程序时提到的汽车站购票场景中，用户扫描小程序二维码的概率远高于线上。这其实相当于购票小程序分享了汽车客运站所独占的用户时间，从而使用户更愿意关注和使用此种场景下的小程序。</p></blockquote></blockquote><p>抢占用户线下的时间片段，同时满足将商业致于无形的理念。</p><blockquote><p>page 167</p><blockquote><p>很多人一辈子都未必会去电影院看一场电影或者去演唱会现场听音乐，这也并非是因为他们的购买力较低，而是因为他们更喜欢在乘坐公交车、排队付款等碎片化的场景中随时随地地获取这些内容。例如，部分人喜欢在洗澡的时候听音乐，部分人喜欢在乘坐公交车时看动漫，还有人喜欢边吃饭边看视频……将自己感兴趣的内容与生活场景进行搭配并组合后，可以让他们的生活变得更加丰富多彩。</p></blockquote></blockquote><p>当代人生活中碎片化的时间越来越普遍，小程序的轻快特性正好适合嵌入到这些碎片时间里。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;page 136&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;例如，张小龙介绍小程序时提到的汽车站购票场景中，用户扫描小程序二维码的概率远高于线上。这其实相当于购票小程序分享了汽车客运站所独占的用户时间，从而使用户更愿意关注和使用此种场景下的小程序。&lt;
-      
-    
-    </summary>
-    
-    
-      <category term="读书" scheme="https://zhengxin23.github.io/tags/%E8%AF%BB%E4%B9%A6/"/>
     
   </entry>
   
