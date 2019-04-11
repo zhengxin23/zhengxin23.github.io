@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    《微信小程序运营实战》的阅读感想 |
+    ant-design-pro脚手架第一次使用及问题 |
     
     郑廿三</title>
   
@@ -36,7 +36,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="post-20190402-read-微信小程序运营实战" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-20190405-ant-design-pro脚手架第一次使用及问题" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -44,7 +44,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      《微信小程序运营实战》的阅读感想
+      ant-design-pro脚手架第一次使用及问题
     </h1>
   
 
@@ -53,8 +53,8 @@
 
     
       <div class="article-meta">
-        <a href="/2019/04/08/20190402-read-微信小程序运营实战/" class="article-date">
-  <time datetime="2019-04-08T12:00:00.000Z" itemprop="datePublished">2019-04-08</time>
+        <a href="/2019/04/05/20190405-ant-design-pro脚手架第一次使用及问题/" class="article-date">
+  <time datetime="2019-04-05T12:27:07.000Z" itemprop="datePublished">2019-04-05</time>
 </a>
         
       </div>
@@ -67,26 +67,25 @@
 
       
         <blockquote>
-<p>page 136</p>
-<blockquote>
-<p>例如，张小龙介绍小程序时提到的汽车站购票场景中，用户扫描小程序二维码的概率远高于线上。这其实相当于购票小程序分享了汽车客运站所独占的用户时间，从而使用户更愿意关注和使用此种场景下的小程序。</p>
+<p>最近计划开发一个中后台平台，学习研究了一段时间 react<br>技术栈，感觉其以组件为核心思想的开发思路，有助于构建可复用的、相对易于维护的系统。由于UI设计方面比较薄弱，想依靠大平台的UI框架。查看了圈，感觉阿里的<br>Ant Design<br>挺符合心水。依靠大平台的设计理念，避免个人用户体验设计理念不足，避免个人开发出来的系统体验东一个想法西一个想法，导致系统体验太不专业。研究了一个<br>ant-design-pro 感觉不错。<br><a id="more"></a><br>开始着手搭建ant-design-pro demo工程，熟悉下。依据官网看似简单的步骤，但在过程中遇到一些莫名的问题，搞了两三天终于运行成功了……</p>
 </blockquote>
-</blockquote>
-<p>抢占用户线下的时间片段，同时满足将商业致于无形的理念。</p>
-<blockquote>
-<p>page 167</p>
-<blockquote>
-<p>很多人一辈子都未必会去电影院看一场电影或者去演唱会现场听音乐，这也并非是因为他们的购买力较低，而是因为他们更喜欢在乘坐公交车、排队付款等碎片化的场景中随时随地地获取这些内容。例如，部分人喜欢在洗澡的时候听音乐，部分人喜欢在乘坐公交车时看动漫，还有人喜欢边吃饭边看视频……将自己感兴趣的内容与生活场景进行搭配并组合后，可以让他们的生活变得更加丰富多彩。</p>
-</blockquote>
-</blockquote>
-<p>当代人生活中碎片化的时间越来越普遍，小程序的轻快特性正好适合嵌入到这些碎片时间里。</p>
+<ol>
+<li><p>参照官网步骤<br> github：<a href="https://github.com/ant-design/ant-design-pro" target="_blank" rel="noopener">https://github.com/ant-design/ant-design-pro</a><br> demo搭建步骤如下：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ant-design/ant-design-pro.git --depth=1</span><br><span class="line">cd ant-design-pro</span><br><span class="line">npm install</span><br><span class="line">npm start         # visit http://localhost:8000</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 <code>npm install</code> 步骤时，一直出现各种依赖包安装失败等等等等等等各种摸不着头脑的问题<br> 如：某个依赖包无法安装、json解析出错等。<br> 如：npm ERR! Error: EPERM: operation not permitted, 使用管理员权限也解决不了<br> 忘记截图保存了，自己脑补下吧~~<br> 如失败提示网上搜索，基本都没有很准确的解决方法。</p>
+</li>
+<li><p>最后通过将 npm 降到版本4后，终于安装部署成功了，汗。<br> 原先安装时，为版本8；中间试过降到版本6也不行。<br> npm降版本命令： <code>npm i npm@4 -g</code></p>
+</li>
+</ol>
+<p>总结这种前端框架，有点不好就是依赖项目太多，每个依赖项目的版本已很多。<br>在版本不匹配时，出现一些莫名其妙的问题，如果很方便的路径进行解决！</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/08/20190402-read-微信小程序运营实战/" data-id="cjucn116g00099stu9e0hja59" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/05/20190405-ant-design-pro脚手架第一次使用及问题/" data-id="cjucn116i000c9stuvkult5l6" class="article-share-link">分享</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书/">读书</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ant-design/">ant-design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 
     </footer>
 
@@ -96,10 +95,19 @@
     
   <nav class="article-nav">
     
+      <a href="/2019/04/06/20190406-benchmarkDotnet/" class="article-nav-link">
+        <strong class="article-nav-caption">前一篇</strong>
+        <div class="article-nav-title">
+          
+            .Net性能测试工具BenchmarkDotnet
+          
+        </div>
+      </a>
     
-      <a href="/2019/04/07/20190407-dotnetcore-app-first/" class="article-nav-link">
+    
+      <a href="/2019/04/01/2019040101-git-create-repository/" class="article-nav-link">
         <strong class="article-nav-caption">后一篇</strong>
-        <div class="article-nav-title">第一次创建.NetCore控制台程序编译失败问题</div>
+        <div class="article-nav-title">将已有项目绑定到git上</div>
       </a>
     
   </nav>

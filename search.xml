@@ -27,6 +27,15 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[ant-design-pro脚手架第一次使用及问题]]></title>
+    <url>%2F2019%2F04%2F05%2F20190405-ant-design-pro%E8%84%9A%E6%89%8B%E6%9E%B6%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[最近计划开发一个中后台平台，学习研究了一段时间 react技术栈，感觉其以组件为核心思想的开发思路，有助于构建可复用的、相对易于维护的系统。由于UI设计方面比较薄弱，想依靠大平台的UI框架。查看了圈，感觉阿里的Ant Design挺符合心水。依靠大平台的设计理念，避免个人用户体验设计理念不足，避免个人开发出来的系统体验东一个想法西一个想法，导致系统体验太不专业。研究了一个ant-design-pro 感觉不错。开始着手搭建ant-design-pro demo工程，熟悉下。依据官网看似简单的步骤，但在过程中遇到一些莫名的问题，搞了两三天终于运行成功了…… 参照官网步骤 github：https://github.com/ant-design/ant-design-pro demo搭建步骤如下： 1234git clone https://github.com/ant-design/ant-design-pro.git --depth=1cd ant-design-pronpm installnpm start # visit http://localhost:8000 在 npm install 步骤时，一直出现各种依赖包安装失败等等等等等等各种摸不着头脑的问题 如：某个依赖包无法安装、json解析出错等。 如：npm ERR! Error: EPERM: operation not permitted, 使用管理员权限也解决不了 忘记截图保存了，自己脑补下吧~~ 如失败提示网上搜索，基本都没有很准确的解决方法。 最后通过将 npm 降到版本4后，终于安装部署成功了，汗。 原先安装时，为版本8；中间试过降到版本6也不行。 npm降版本命令： npm i npm@4 -g 总结这种前端框架，有点不好就是依赖项目太多，每个依赖项目的版本已很多。在版本不匹配时，出现一些莫名其妙的问题，如果很方便的路径进行解决！]]></content>
+      <tags>
+        <tag>react</tag>
+        <tag>ant-design</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[将已有项目绑定到git上]]></title>
     <url>%2F2019%2F04%2F01%2F2019040101-git-create-repository%2F</url>
     <content type="text"><![CDATA[1. 创建远程仓库 登录github，在上边创建一个仓库 复制仓库链接，比如为git@github.com:alex-my/some-project.git 2.初始化本地仓库进入本地项目执行以下命令123456// 初始化本地仓库git init// 添加全部文件git add .// 提交到本地仓库git commit -m “提交说明” 3.本地仓库与远程仓库绑定绑定到远程仓库，并提交1234// 绑定，并取一个别名，通常用origin，后面的地址是前边创建的远程仓库地址git remote add origin git@github.com:alex-my/some-project.git// 把本地仓库地址提交到远程仓库git push origin master 4.修改本地仓库，并提交到远程仓库假设修改了README.md文件在根目录或者在文件所在目录执行12345678910git add .// 查看变动git status// 提交到本地仓库git commit -m “modify reade.md”// 如果是多人合作的项目,请先pullgit pull// 推送到远程仓库(第一个使用默认,作用和第一个一样)git pushgit push origin master 5.仓库别名如果有多个仓库或者多个分支，在推送或者拉取的时候需要注意12git pull 仓库别名 仓库分支git push 仓库别名 仓库分支 遇到问题,如下图解决方法：git push -f origin master]]></content>
@@ -35,8 +44,27 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F03%2F29%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[python函数参数前面单星号（*）和双星号（**）的区别]]></title>
+    <url>%2F2019%2F03%2F05%2F20190305-python-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%89%8D%E9%9D%A2%E5%8D%95%E6%98%9F%E5%8F%B7%E5%92%8C%E5%8F%8C%E6%98%9F%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[在python的函数中经常能看到输入的参数前面有一个或者两个星号：例如12def foo(param1, *param2):def bar(param1, **param2): 这两种用法其实都是用来将任意个数的参数导入到python函数中。 单星号（）：agrs将所以参数以元组(tuple)的形式导入：例如：1234def foo(param1, *param2): print param1 print param2foo(1,2,3,4,5) 1(2, 3, 4, 5)双星号（）：kwargs将参数以字典的形式导入1234def bar(param1, **param2): print param1 print param2bar(1,a=2,b=3) 1{‘a’: 2, ‘b’: 3}此外，单星号的另一个用法是解压参数列表：1234def foo(bar, lee): print bar, leel = [1, 2]foo(*l) 1 2当然这两个用法可以同时出现在一个函数中：例如123456def foo(a, b=10, *args, **kwargs): print a print b print args print kwargsfoo(1, 2, 3, 4, e=5, f=6, g=7) 123 4{‘e’: 5, ‘g’: 7, ‘f’: 6}]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信小程序设置box-shadow阴影在真机上无效]]></title>
+    <url>%2F2019%2F01%2F06%2F20190106-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E7%BD%AEbox-shadow%E9%98%B4%E5%BD%B1%E5%9C%A8%E7%9C%9F%E6%9C%BA%E4%B8%8A%E6%97%A0%E6%95%88%2F</url>
+    <content type="text"><![CDATA[微信小程序设置box-shadow阴影无效，如下： box-shadow: 0rpx 10rpx 50rpx 10rpx #5555551A; 在开发环境上有效，但在真机上无效。解决办法：使用rgba创建颜色后，在IDE和真机上都有效了。 box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.10);]]></content>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[微信小程序post请求服务器端 No HTTP resource was found 问题]]></title>
+    <url>%2F2018%2F11%2F30%2F20181130-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fpost%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFNo-HTTP-resource-was-found%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[小程序端代码：12345678910111213141516wx.request(&#123; url: getApp().globalData.webApiUrlRoot + &apos;/api/User/test&apos;, method: &apos;POST&apos;, header: &#123; &apos;content-type&apos;: &apos;application/json&apos; // 默认值 &#125;, data:&#123; a:&quot;1&quot; &#125;, success(res) &#123; console.log(res); &#125;, complete(res) &#123; console.log(res); &#125; &#125;); ASP.NET web api :12345[HttpPost]public string test(string a)&#123; return &quot;hello&quot;;&#125; 请求结果失败，应答内容：“No HTTP resource was found that matches the request URI ‘http://localhost:57437/api/User/test&#39;.&quot; 原因为：POST方法只能接收 Content-Type 为 application/x-www-form-urlencoded 和 multipart/form-data 的 POST 数据]]></content>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
   </entry>
 </search>

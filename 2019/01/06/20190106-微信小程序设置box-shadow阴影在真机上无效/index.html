@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    关于 |
+    微信小程序设置box-shadow阴影在真机上无效 |
     
     郑廿三</title>
   
@@ -36,7 +36,7 @@
 <body>
 <main class="content">
   <section class="outer">
-  <article id="page-" class="article article-type-page" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-20190106-微信小程序设置box-shadow阴影在真机上无效" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
@@ -44,13 +44,20 @@
         
   
     <h1 class="article-title" itemprop="name">
-      关于
+      微信小程序设置box-shadow阴影在真机上无效
     </h1>
   
 
       </header>
     
 
+    
+      <div class="article-meta">
+        <a href="/2019/01/06/20190106-微信小程序设置box-shadow阴影在真机上无效/" class="article-date">
+  <time datetime="2019-01-06T12:35:32.000Z" itemprop="datePublished">2019-01-06</time>
+</a>
+        
+      </div>
     
     <!--<div style="width:100%;border-bottom: 1px solid #969696;margin-top: 10px;"></div>-->
     <div class="article-entry" itemprop="articleBody">
@@ -59,26 +66,67 @@
       
 
       
-        <p>趁阳光正好，趁微风不燥，趁现在的双手还能拥抱彼此，趁我们还能呼吸，去见你想见的人，做你想做的事。</p>
-<p>Email : <a href="mailto:zhengxin5@outlook.com" target="_blank" rel="noopener">zhengxin5@outlook.com</a></p>
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><ul>
-<li>CSDN博客 : <a href="https://blog.csdn.net/sinat_31465609" target="_blank" rel="noopener">https://blog.csdn.net/sinat_31465609</a></li>
-<li>GitHub : <a href="https://github.com/zhengxin23" target="_blank" rel="noopener">https://github.com/zhengxin23</a></li>
-</ul>
+        <p>微信小程序设置box-shadow阴影无效，如下：</p>
+<p><code>box-shadow: 0rpx 10rpx 50rpx 10rpx #5555551A;</code></p>
+<p>在开发环境上有效，但在真机上无效。<br><a id="more"></a><br>解决办法：<br>使用rgba创建颜色后，在IDE和真机上都有效了。</p>
+<p><code>box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.10);</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/about/index.html" data-id="cjucn116600019stuy6nswl9o" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/01/06/20190106-微信小程序设置box-shadow阴影在真机上无效/" data-id="cjucn116e00079stu3uub3p9f" class="article-share-link">分享</a>
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
+
     </footer>
 
   </div>
 
   
     
+  <nav class="article-nav">
+    
+      <a href="/2019/03/05/20190305-python-函数参数前面单星号和双星号的区别/" class="article-nav-link">
+        <strong class="article-nav-caption">前一篇</strong>
+        <div class="article-nav-title">
+          
+            python函数参数前面单星号（*）和双星号（**）的区别
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2018/11/30/20181130-微信小程序post请求服务器端No-HTTP-resource-was-found问题/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">微信小程序post请求服务器端 No HTTP resource was found 问题</div>
+      </a>
+    
+  </nav>
+
 
   
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a1188fe75d9adbe13962',
+      clientSecret: 'd632f088285dcedcbf4d2a99f8bb354532c86b0b',
+      repo: 'gitalk',
+      owner: 'zhengxin23',
+      admin: ['zhengxin23'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
 
   
 

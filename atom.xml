@@ -47,7 +47,7 @@
     <link href="https://zhengxin23.github.io/2019/04/07/20190407-dotnetcore-app-first/"/>
     <id>https://zhengxin23.github.io/2019/04/07/20190407-dotnetcore-app-first/</id>
     <published>2019-04-07T02:16:26.000Z</published>
-    <updated>2019-04-07T02:39:17.941Z</updated>
+    <updated>2019-04-11T12:53:15.880Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>随着微软对.NetCore的不断推进发展，作为.Net阵营的开发人员，开始着手跟上脚步学习.NetCore</p></blockquote><h3 id="创建-NetCore-控制台程序"><a href="#创建-NetCore-控制台程序" class="headerlink" title="创建 .NetCore 控制台程序"></a>创建 .NetCore 控制台程序</h3><p>第一次创建控制台程序，编译时出现了如下问题,<br>依赖项出现黄色叹号警告，很多程序库未引用。有点让人摸不着头脑，想首次来个”hello, world”就给抛出难题<br><a id="more"></a><br><img src="https://i.loli.net/2019/04/07/5ca95e569a634.png" alt></p><p>其中一项错误为：</p><blockquote><p>找不到资产文件”…\project.assets.json”。运行NuGet包还原以生成此文件。</p></blockquote><p>猜想应该与 NuGet 程序包管理问题相关。</p><h3 id="dotnet-命令创建控制台程序"><a href="#dotnet-命令创建控制台程序" class="headerlink" title="dotnet 命令创建控制台程序"></a>dotnet 命令创建控制台程序</h3><p>dotnet命令创建控制台项目三步曲：</p><ul><li><code>dotnet new console - o netcore2</code></li><li><code>dotnet restore netcore2\netcore2.csproj</code></li><li><code>dotnet run -p netcore2\netcore2.csproj</code></li></ul><p>使用命令创建的项目能正常编译运行<br><img src="https://i.loli.net/2019/04/07/5ca9608cf143f.png" alt="dotnetcore4.png"></p><p>查看命令行与vs创建项目的过程，有区别的可能为第二步：<br><code>dotnet restore</code> - 恢复项目的依赖项和工具。</p><p>用该命令应用于用vs创建的控制台项目后，可以正常编译及执行了。<br>但按道理不可能每次使用vs创建项目都需要使用命令行执行<code>dotnet restore</code>一下吧，<br>这也太麻烦了。</p><h3 id="NuGet-包管理器设置"><a href="#NuGet-包管理器设置" class="headerlink" title="NuGet 包管理器设置"></a>NuGet 包管理器设置</h3><p>几经周折，找到原来vs上有设置程序包还原的选项，可以依据项目自动恢复依赖项和工具。<br><img src="https://i.loli.net/2019/04/07/5ca95e5675066.png" alt="dotnetcore2.png"><br>将如上图的两个选项勾选-确定。</p><h3 id="终于编译并执行成功"><a href="#终于编译并执行成功" class="headerlink" title="终于编译并执行成功"></a>终于编译并执行成功</h3><p>NuGet包管理器设置好后，“重新生成”控制台项目，终于可以编译和执行成功了。<br><img src="https://i.loli.net/2019/04/07/5ca95e5695cb9.png" alt="dotnetcore3.png"></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul><li>不知道VS为什么不自动勾选后这两个选项，让开发人员省点心……</li><li>Hello .NetCore 解锁完成</li></ul>]]></content>
     
@@ -93,6 +93,29 @@
   </entry>
   
   <entry>
+    <title>ant-design-pro脚手架第一次使用及问题</title>
+    <link href="https://zhengxin23.github.io/2019/04/05/20190405-ant-design-pro%E8%84%9A%E6%89%8B%E6%9E%B6%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%97%AE%E9%A2%98/"/>
+    <id>https://zhengxin23.github.io/2019/04/05/20190405-ant-design-pro脚手架第一次使用及问题/</id>
+    <published>2019-04-05T12:27:07.000Z</published>
+    <updated>2019-04-11T12:52:58.346Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近计划开发一个中后台平台，学习研究了一段时间 react<br>技术栈，感觉其以组件为核心思想的开发思路，有助于构建可复用的、相对易于维护的系统。由于UI设计方面比较薄弱，想依靠大平台的UI框架。查看了圈，感觉阿里的<br>Ant Design<br>挺符合心水。依靠大平台的设计理念，避免个人用户体验设计理念不足，避免个人开发出来的系统体验东一个想法西一个想法，导致系统体验太不专业。研究了一个<br>ant-design-pro 感觉不错。<br><a id="more"></a><br>开始着手搭建ant-design-pro demo工程，熟悉下。依据官网看似简单的步骤，但在过程中遇到一些莫名的问题，搞了两三天终于运行成功了……</p></blockquote><ol><li><p>参照官网步骤<br> github：<a href="https://github.com/ant-design/ant-design-pro" target="_blank" rel="noopener">https://github.com/ant-design/ant-design-pro</a><br> demo搭建步骤如下：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ant-design/ant-design-pro.git --depth=1</span><br><span class="line">cd ant-design-pro</span><br><span class="line">npm install</span><br><span class="line">npm start         # visit http://localhost:8000</span><br></pre></td></tr></table></figure></li><li><p>在 <code>npm install</code> 步骤时，一直出现各种依赖包安装失败等等等等等等各种摸不着头脑的问题<br> 如：某个依赖包无法安装、json解析出错等。<br> 如：npm ERR! Error: EPERM: operation not permitted, 使用管理员权限也解决不了<br> 忘记截图保存了，自己脑补下吧~~<br> 如失败提示网上搜索，基本都没有很准确的解决方法。</p></li><li><p>最后通过将 npm 降到版本4后，终于安装部署成功了，汗。<br> 原先安装时，为版本8；中间试过降到版本6也不行。<br> npm降版本命令： <code>npm i npm@4 -g</code></p></li></ol><p>总结这种前端框架，有点不好就是依赖项目太多，每个依赖项目的版本已很多。<br>在版本不匹配时，出现一些莫名其妙的问题，如果很方便的路径进行解决！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近计划开发一个中后台平台，学习研究了一段时间 react&lt;br&gt;技术栈，感觉其以组件为核心思想的开发思路，有助于构建可复用的、相对易于维护的系统。由于UI设计方面比较薄弱，想依靠大平台的UI框架。查看了圈，感觉阿里的&lt;br&gt;Ant Design&lt;br&gt;挺符合心水。依靠大平台的设计理念，避免个人用户体验设计理念不足，避免个人开发出来的系统体验东一个想法西一个想法，导致系统体验太不专业。研究了一个&lt;br&gt;ant-design-pro 感觉不错。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="react" scheme="https://zhengxin23.github.io/tags/react/"/>
+    
+      <category term="ant-design" scheme="https://zhengxin23.github.io/tags/ant-design/"/>
+    
+  </entry>
+  
+  <entry>
     <title>将已有项目绑定到git上</title>
     <link href="https://zhengxin23.github.io/2019/04/01/2019040101-git-create-repository/"/>
     <id>https://zhengxin23.github.io/2019/04/01/2019040101-git-create-repository/</id>
@@ -116,20 +139,64 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://zhengxin23.github.io/2019/03/29/hello-world/"/>
-    <id>https://zhengxin23.github.io/2019/03/29/hello-world/</id>
-    <published>2019-03-29T07:27:34.417Z</published>
-    <updated>2019-04-02T07:46:31.419Z</updated>
+    <title>python函数参数前面单星号（*）和双星号（**）的区别</title>
+    <link href="https://zhengxin23.github.io/2019/03/05/20190305-python-%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%89%8D%E9%9D%A2%E5%8D%95%E6%98%9F%E5%8F%B7%E5%92%8C%E5%8F%8C%E6%98%9F%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>https://zhengxin23.github.io/2019/03/05/20190305-python-函数参数前面单星号和双星号的区别/</id>
+    <published>2019-03-05T12:30:00.000Z</published>
+    <updated>2019-04-11T12:52:48.186Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>在python的函数中经常能看到输入的参数前面有一个或者两个星号：例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def foo(param1, *param2):</span><br><span class="line">def bar(param1, **param2):</span><br></pre></td></tr></table></figure></p><a id="more"></a><p>这两种用法其实都是用来将任意个数的参数导入到python函数中。</p><p>单星号（<em>）：</em>agrs<br>将所以参数以元组(tuple)的形式导入：<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def foo(param1, *param2):</span><br><span class="line">    print param1</span><br><span class="line">    print param2</span><br><span class="line">foo(1,2,3,4,5)</span><br></pre></td></tr></table></figure></p><p>1<br>(2, 3, 4, 5)<br>双星号（<strong>）：</strong>kwargs<br>将参数以字典的形式导入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def bar(param1, **param2):</span><br><span class="line">    print param1</span><br><span class="line">    print param2</span><br><span class="line">bar(1,a=2,b=3)</span><br></pre></td></tr></table></figure></p><p>1<br>{‘a’: 2, ‘b’: 3}<br>此外，单星号的另一个用法是解压参数列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def foo(bar, lee):</span><br><span class="line">    print bar, lee</span><br><span class="line">l = [1, 2]</span><br><span class="line">foo(*l)</span><br></pre></td></tr></table></figure></p><p>1 2<br>当然这两个用法可以同时出现在一个函数中：例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def foo(a, b=10, *args, **kwargs):</span><br><span class="line">    print a</span><br><span class="line">    print b</span><br><span class="line">    print args</span><br><span class="line">    print kwargs</span><br><span class="line">foo(1, 2, 3, 4, e=5, f=6, g=7)</span><br></pre></td></tr></table></figure></p><p>1<br>2<br>3 4<br>{‘e’: 5, ‘g’: 7, ‘f’: 6}</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;在python的函数中经常能看到输入的参数前面有一个或者两个星号：例如&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;def foo(param1, *param2):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;def bar(param1, **param2):&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
     
+    
+      <category term="python" scheme="https://zhengxin23.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序设置box-shadow阴影在真机上无效</title>
+    <link href="https://zhengxin23.github.io/2019/01/06/20190106-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E7%BD%AEbox-shadow%E9%98%B4%E5%BD%B1%E5%9C%A8%E7%9C%9F%E6%9C%BA%E4%B8%8A%E6%97%A0%E6%95%88/"/>
+    <id>https://zhengxin23.github.io/2019/01/06/20190106-微信小程序设置box-shadow阴影在真机上无效/</id>
+    <published>2019-01-06T12:35:32.000Z</published>
+    <updated>2019-04-11T12:52:40.698Z</updated>
+    
+    <content type="html"><![CDATA[<p>微信小程序设置box-shadow阴影无效，如下：</p><p><code>box-shadow: 0rpx 10rpx 50rpx 10rpx #5555551A;</code></p><p>在开发环境上有效，但在真机上无效。<br><a id="more"></a><br>解决办法：<br>使用rgba创建颜色后，在IDE和真机上都有效了。</p><p><code>box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.10);</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;微信小程序设置box-shadow阴影无效，如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;box-shadow: 0rpx 10rpx 50rpx 10rpx #5555551A;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在开发环境上有效，但在真机上无效。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="微信小程序" scheme="https://zhengxin23.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信小程序post请求服务器端 No HTTP resource was found 问题</title>
+    <link href="https://zhengxin23.github.io/2018/11/30/20181130-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fpost%E8%AF%B7%E6%B1%82%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AFNo-HTTP-resource-was-found%E9%97%AE%E9%A2%98/"/>
+    <id>https://zhengxin23.github.io/2018/11/30/20181130-微信小程序post请求服务器端No-HTTP-resource-was-found问题/</id>
+    <published>2018-11-30T02:33:42.000Z</published>
+    <updated>2019-04-11T12:52:25.530Z</updated>
+    
+    <content type="html"><![CDATA[<p>小程序端代码：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">wx.request(&#123;</span><br><span class="line">      url: getApp().globalData.webApiUrlRoot + &apos;/api/User/test&apos;,</span><br><span class="line">      method: &apos;POST&apos;,</span><br><span class="line">      header: &#123;</span><br><span class="line">        &apos;content-type&apos;: &apos;application/json&apos; // 默认值</span><br><span class="line">      &#125;,</span><br><span class="line">      data:&#123;</span><br><span class="line">        a:&quot;1&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      success(res) &#123;</span><br><span class="line">        console.log(res);</span><br><span class="line">      &#125;,</span><br><span class="line">      complete(res) &#123;</span><br><span class="line">        console.log(res);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure></p><p>ASP.NET web api :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[HttpPost]</span><br><span class="line">public string test(string a)</span><br><span class="line">&#123;</span><br><span class="line">    return &quot;hello&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>请求结果失败，应答内容：<br>“No HTTP resource was found that matches the request URI ‘<a href="http://localhost:57437/api/User/test&#39;.&quot;" target="_blank" rel="noopener">http://localhost:57437/api/User/test&#39;.&quot;</a></p><p>原因为：POST方法只能接收 Content-Type 为 application/x-www-form-urlencoded 和 multipart/form-data 的 POST 数据</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;小程序端代码：&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="微信小程序" scheme="https://zhengxin23.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
