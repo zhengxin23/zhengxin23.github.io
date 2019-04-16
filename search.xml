@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[dbKoda连接mongodb出现ConnectNamedPipe Failed错误]]></title>
+    <url>%2F2019%2F04%2F16%2F20190416-dbKoda%E8%BF%9E%E6%8E%A5mongodb%E5%87%BA%E9%94%99%2F</url>
+    <content type="text"><![CDATA[最近使用 dbKoda 连接 mongodb 数据库出现错误 1. dbKoda连接mongodb出现ConnectNamedPipe Failed错误出错提示如下：Error lauching WinPTY agent : ConnectNamedPipe failed:Window error 232 at new WindowsPtyAgent(……) 2. 关闭 McAfee 实时保护功能后连接成功经各种方法尝试后，发现关闭 McAfee 实时保护功能后，连接成功]]></content>
+      <tags>
+        <tag>mongodb</tag>
+        <tag>dbKoda</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《微信小程序运营实战》的阅读感想]]></title>
     <url>%2F2019%2F04%2F08%2F20190402-read-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%90%A5%E5%AE%9E%E6%88%98%2F</url>
     <content type="text"><![CDATA[page 136 例如，张小龙介绍小程序时提到的汽车站购票场景中，用户扫描小程序二维码的概率远高于线上。这其实相当于购票小程序分享了汽车客运站所独占的用户时间，从而使用户更愿意关注和使用此种场景下的小程序。 抢占用户线下的时间片段，同时满足将商业致于无形的理念。 page 167 很多人一辈子都未必会去电影院看一场电影或者去演唱会现场听音乐，这也并非是因为他们的购买力较低，而是因为他们更喜欢在乘坐公交车、排队付款等碎片化的场景中随时随地地获取这些内容。例如，部分人喜欢在洗澡的时候听音乐，部分人喜欢在乘坐公交车时看动漫，还有人喜欢边吃饭边看视频……将自己感兴趣的内容与生活场景进行搭配并组合后，可以让他们的生活变得更加丰富多彩。 当代人生活中碎片化的时间越来越普遍，小程序的轻快特性正好适合嵌入到这些碎片时间里。]]></content>
