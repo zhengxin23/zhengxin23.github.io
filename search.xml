@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一条路]]></title>
+    <url>%2F2019%2F04%2F26%2F20190425-thoughtsOfOneRoad%2F</url>
+    <content type="text"><![CDATA[对一条路的认识从陌生到熟悉后，有时候会有一种怀念当初陌生的感觉。因为那时在这条路上，才刚开始，一切都值得憧憬。因为那时在这条路上，感觉生涩，一切都值得好奇。]]></content>
+      <tags>
+        <tag>随记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[dbKoda连接mongodb出现ConnectNamedPipe Failed错误]]></title>
     <url>%2F2019%2F04%2F16%2F20190416-dbKoda%E8%BF%9E%E6%8E%A5mongodb%E5%87%BA%E9%94%99%2F</url>
     <content type="text"><![CDATA[最近使用 dbKoda 连接 mongodb 数据库出现错误 1. dbKoda连接mongodb出现ConnectNamedPipe Failed错误出错提示如下：Error lauching WinPTY agent : ConnectNamedPipe failed:Window error 232 at new WindowsPtyAgent(……) 2. 关闭 McAfee 实时保护功能后连接成功经各种方法尝试后，发现关闭 McAfee 实时保护功能后，连接成功]]></content>
