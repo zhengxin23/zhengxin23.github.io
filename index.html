@@ -69,6 +69,61 @@
     
     
       
+        <article id="post-20190430-wpf-listboxitem-datatemplate-command无效问题" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/04/30/20190430-wpf-listboxitem-datatemplate-command无效问题/">WPF ListBoxItem DataTemplate Command无效问题</a>
+    </h2>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/04/30/20190430-wpf-listboxitem-datatemplate-command无效问题/" class="article-date">
+  <time datetime="2019-04-30T07:21:25.000Z" itemprop="datePublished">2019-04-30</time>
+</a>
+        
+      </div>
+    
+    <!--<div style="width:100%;border-bottom: 1px solid #969696;margin-top: 10px;"></div>-->
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>今天使用wpf的prism开发项目时，需要有在ListBox中的ListBoxItem触发命令的需求，<br>在创建ListBoxItem的DataTemplate时，将prism的viewmodel中定义的command绑定到DataTemplate的Command上，<br>如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataTemplate x:Key=&quot;CanIdTemplate&quot; DataType=&quot;&#123;x:Type sys:String&#125;&quot;&gt;</span><br><span class="line">    &lt;materialDesign:Chip Content=&quot;&#123;Binding&#125;&quot; Margin=&quot;5,5,0,0&quot; IsDeletable=&quot;True&quot;</span><br><span class="line">                         DeleteCommand=&quot;&#123;Binding CanIdChipDeleteCommand&#125;&quot;&gt;</span><br><span class="line">    &lt;/materialDesign:Chip&gt;</span><br><span class="line">&lt;/DataTemplate&gt;</span><br></pre></td></tr></table></figure></p>
+<p>但在运行时发现 <code>CanIdChipDeleteCommand</code> 没有触发。<br>
+        
+          <a class="article-more-link" href="/2019/04/30/20190430-wpf-listboxitem-datatemplate-command无效问题/">阅读全文...</a>
+        
+      
+    </p></div>
+    <footer class="article-footer">
+      <a data-url="https://zhengxin23.github.io/2019/04/30/20190430-wpf-listboxitem-datatemplate-command无效问题/" data-id="cjv3ho8z10008g8tutv381smz" class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prism/">prism</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wpf/">wpf</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-20190425-thoughtsOfOneRoad" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -104,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/26/20190425-thoughtsOfOneRoad/" data-id="cjuxgpzz00000yktudu1emgau" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/26/20190425-thoughtsOfOneRoad/" data-id="cjv3ho8yy0005g8tuk7ubprux" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随记/">随记</a></li></ul>
 
@@ -161,7 +216,7 @@
       
     </p></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/16/20190416-dbKoda连接mongodb出错/" data-id="cjuxg9vdw000axwtuu5gi9aqk" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/16/20190416-dbKoda连接mongodb出错/" data-id="cjv3ho8z20009g8tup21tcqqn" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dbKoda/">dbKoda</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
 
@@ -226,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/08/20190402-read-微信小程序运营实战/" data-id="cjuxg9vdr0005xwtuaz7xfz55" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/08/20190402-read-微信小程序运营实战/" data-id="cjv3ho8zz000zg8tujzaavf31" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书/">读书</a></li></ul>
 
@@ -283,7 +338,7 @@
       
     </p></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/07/20190407-dotnetcore-app-first/" data-id="cjuxg9vfh000sxwtu8w3awepd" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/07/20190407-dotnetcore-app-first/" data-id="cjv3ho8ze000rg8tubrp2qwst" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NetCore/">.NetCore</a></li></ul>
 
@@ -340,7 +395,7 @@
       
     </p></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/06/20190406-benchmarkDotnet/" data-id="cjuxg9vfs000wxwtumeb9943x" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/06/20190406-benchmarkDotnet/" data-id="cjv3ho8zx000xg8tu4u8ovjdu" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Net/">.Net</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BenchmarkDotnet/">BenchmarkDotnet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能/">性能</a></li></ul>
 
@@ -395,7 +450,7 @@
       
     </p></blockquote></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/05/20190405-ant-design-pro脚手架第一次使用及问题/" data-id="cjuxg9vdt0006xwtuvj0uqkxb" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/05/20190405-ant-design-pro脚手架第一次使用及问题/" data-id="cjv3ho8yv0003g8tuxnlhb67u" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ant-design/">ant-design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 
@@ -452,7 +507,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/01/2019040101-git-create-repository/" data-id="cjuxg9vdu0007xwtuniw2njxu" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/01/2019040101-git-create-repository/" data-id="cjv3ho8yx0004g8tufuc8mbdi" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
@@ -506,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/03/05/20190305-python-函数参数前面单星号和双星号的区别/" data-id="cjuxg9vdy000bxwtuypth6mhq" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/03/05/20190305-python-函数参数前面单星号和双星号的区别/" data-id="cjv3ho9010011g8tue62lugyg" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
 
@@ -562,61 +617,7 @@
       
     </p></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/01/06/20190106-微信小程序设置box-shadow阴影在真机上无效/" data-id="cjuxg9vct0000xwtupngdnv18" class="article-share-link">分享</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-20181130-微信小程序post请求服务器端No-HTTP-resource-was-found问题" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2018/11/30/20181130-微信小程序post请求服务器端No-HTTP-resource-was-found问题/">微信小程序post请求服务器端 No HTTP resource was found 问题</a>
-    </h2>
-  
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2018/11/30/20181130-微信小程序post请求服务器端No-HTTP-resource-was-found问题/" class="article-date">
-  <time datetime="2018-11-30T02:33:42.000Z" itemprop="datePublished">2018-11-30</time>
-</a>
-        
-      </div>
-    
-    <!--<div style="width:100%;border-bottom: 1px solid #969696;margin-top: 10px;"></div>-->
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>小程序端代码：<br>
-        
-          <a class="article-more-link" href="/2018/11/30/20181130-微信小程序post请求服务器端No-HTTP-resource-was-found问题/">阅读全文...</a>
-        
-      
-    </p></div>
-    <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2018/11/30/20181130-微信小程序post请求服务器端No-HTTP-resource-was-found问题/" data-id="cjuxg9vdn0002xwtubzi51uue" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/01/06/20190106-微信小程序设置box-shadow阴影在真机上无效/" data-id="cjv3ho8yr0001g8tuhnlup61c" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
 
@@ -635,6 +636,11 @@
       
   </article>
   
+  
+    <nav class="page-nav">
+      
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    </nav>
   
 </section>
 </div>

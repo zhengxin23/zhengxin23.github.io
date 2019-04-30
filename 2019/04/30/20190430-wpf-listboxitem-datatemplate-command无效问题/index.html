@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  
+    <meta name="description" content="Keep It Simple And Stupid">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    WPF ListBoxItem DataTemplate Command无效问题 |
+    
+    郑廿三</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+  
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?ba31108ae5e465028e93d3c43c4fca15";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  <article id="post-20190430-wpf-listboxitem-datatemplate-command无效问题" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      WPF ListBoxItem DataTemplate Command无效问题
+    </h1>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/04/30/20190430-wpf-listboxitem-datatemplate-command无效问题/" class="article-date">
+  <time datetime="2019-04-30T07:21:25.000Z" itemprop="datePublished">2019-04-30</time>
+</a>
+        
+      </div>
+    
+    <!--<div style="width:100%;border-bottom: 1px solid #969696;margin-top: 10px;"></div>-->
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>今天使用wpf的prism开发项目时，需要有在ListBox中的ListBoxItem触发命令的需求，<br>在创建ListBoxItem的DataTemplate时，将prism的viewmodel中定义的command绑定到DataTemplate的Command上，<br>如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataTemplate x:Key=&quot;CanIdTemplate&quot; DataType=&quot;&#123;x:Type sys:String&#125;&quot;&gt;</span><br><span class="line">    &lt;materialDesign:Chip Content=&quot;&#123;Binding&#125;&quot; Margin=&quot;5,5,0,0&quot; IsDeletable=&quot;True&quot;</span><br><span class="line">                         DeleteCommand=&quot;&#123;Binding CanIdChipDeleteCommand&#125;&quot;&gt;</span><br><span class="line">    &lt;/materialDesign:Chip&gt;</span><br><span class="line">&lt;/DataTemplate&gt;</span><br></pre></td></tr></table></figure></p>
+<p>但在运行时发现 <code>CanIdChipDeleteCommand</code> 没有触发。<br><a id="more"></a><br>然后将 <code>materialDesign:Chip</code> 单独放到其他控件容器里运行时可以正确触发命令。<br>经试验分析，应该是因为 DataTemplate 与 数据模板运行时加载所在的控件 的上下文是独立的，<br>而默认绑定情况下在prism的ViewModel中定义的<code>CanIdChipDeleteCommand</code>命令在 DataTemplate 中的上下文找不到。<br>可以通过修改绑定方式，将命令绑定的目标关联到与 ViewModel 所在的同一个上下文中。<br>修改代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;UserControl x:Class=&quot;VrmsServer.Desktop.Views.Functions.Configure.TboxCanIdSettingControl&quot;</span><br><span class="line">             xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><br><span class="line">             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><br><span class="line">             xmlns:prism=&quot;http://prismlibrary.com/&quot;</span><br><span class="line">             xmlns:materialDesign=&quot;http://materialdesigninxaml.net/winfx/xaml/themes&quot;</span><br><span class="line">             xmlns:i=&quot;http://schemas.microsoft.com/expression/2010/interactivity&quot;</span><br><span class="line">             xmlns:converter=&quot;clr-namespace:VrmsServer.Desktop.Converter&quot;</span><br><span class="line">             xmlns:sys=&quot;clr-namespace:System;assembly=mscorlib&quot;</span><br><span class="line">             Background=&quot;#d7d7d7&quot; x:Name=&quot;userControl&quot;</span><br><span class="line">             prism:ViewModelLocator.AutoWireViewModel=&quot;True&quot;&gt;</span><br><span class="line">    &lt;UserControl.Resources&gt;</span><br><span class="line">        &lt;DataTemplate x:Key=&quot;CanIdTemplate&quot; DataType=&quot;&#123;x:Type sys:String&#125;&quot;&gt;</span><br><span class="line">            &lt;materialDesign:Chip Content=&quot;&#123;Binding&#125;&quot; Margin=&quot;5,5,0,0&quot;</span><br><span class="line">                                 IsDeletable=&quot;True&quot;</span><br><span class="line">                                 DeleteCommand=&quot;&#123;Binding ElementName=userControl, Path=DataContext.CanIdChipDeleteCommand&#125;&quot;</span><br><span class="line">                                 DeleteCommandParameter=&quot;&#123;Binding&#125;&quot;&gt;</span><br><span class="line">            &lt;/materialDesign:Chip&gt;</span><br><span class="line">        &lt;/DataTemplate&gt;</span><br><span class="line">    &lt;/UserControl.Resources&gt;</span><br><span class="line">&lt;/UserControl&gt;</span><br></pre></td></tr></table></figure></p>
+<p>代码修改如上后，可以正确触发 <code>ViewModel</code> 中的 <code>CanIdChipDeleteCommand</code> 命令了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhengxin23.github.io/2019/04/30/20190430-wpf-listboxitem-datatemplate-command无效问题/" data-id="cjv3ho8z10008g8tutv381smz" class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prism/">prism</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wpf/">wpf</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2019/04/26/20190425-thoughtsOfOneRoad/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">一条路</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'a1188fe75d9adbe13962',
+      clientSecret: 'd632f088285dcedcbf4d2a99f8bb354532c86b0b',
+      repo: 'gitalk',
+      owner: 'zhengxin23',
+      admin: ['zhengxin23'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 郑廿三</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="郑廿三"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">博客</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">相册</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/read">阅读</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/project">项目</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe "></i><!-- fe-search -->
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/search.js"></script>
+
+
+<script src="/js/ocean.js"></script>
+
+
+</body>
+</html>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[WPF ListBoxItem DataTemplate Command无效问题]]></title>
+    <url>%2F2019%2F04%2F30%2F20190430-wpf-listboxitem-datatemplate-command%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[今天使用wpf的prism开发项目时，需要有在ListBox中的ListBoxItem触发命令的需求，在创建ListBoxItem的DataTemplate时，将prism的viewmodel中定义的command绑定到DataTemplate的Command上，如下：12345&lt;DataTemplate x:Key=&quot;CanIdTemplate&quot; DataType=&quot;&#123;x:Type sys:String&#125;&quot;&gt; &lt;materialDesign:Chip Content=&quot;&#123;Binding&#125;&quot; Margin=&quot;5,5,0,0&quot; IsDeletable=&quot;True&quot; DeleteCommand=&quot;&#123;Binding CanIdChipDeleteCommand&#125;&quot;&gt; &lt;/materialDesign:Chip&gt;&lt;/DataTemplate&gt; 但在运行时发现 CanIdChipDeleteCommand 没有触发。然后将 materialDesign:Chip 单独放到其他控件容器里运行时可以正确触发命令。经试验分析，应该是因为 DataTemplate 与 数据模板运行时加载所在的控件 的上下文是独立的，而默认绑定情况下在prism的ViewModel中定义的CanIdChipDeleteCommand命令在 DataTemplate 中的上下文找不到。可以通过修改绑定方式，将命令绑定的目标关联到与 ViewModel 所在的同一个上下文中。修改代码如下：1234567891011121314151617181920&lt;UserControl x:Class=&quot;VrmsServer.Desktop.Views.Functions.Configure.TboxCanIdSettingControl&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot; xmlns:prism=&quot;http://prismlibrary.com/&quot; xmlns:materialDesign=&quot;http://materialdesigninxaml.net/winfx/xaml/themes&quot; xmlns:i=&quot;http://schemas.microsoft.com/expression/2010/interactivity&quot; xmlns:converter=&quot;clr-namespace:VrmsServer.Desktop.Converter&quot; xmlns:sys=&quot;clr-namespace:System;assembly=mscorlib&quot; Background=&quot;#d7d7d7&quot; x:Name=&quot;userControl&quot; prism:ViewModelLocator.AutoWireViewModel=&quot;True&quot;&gt; &lt;UserControl.Resources&gt; &lt;DataTemplate x:Key=&quot;CanIdTemplate&quot; DataType=&quot;&#123;x:Type sys:String&#125;&quot;&gt; &lt;materialDesign:Chip Content=&quot;&#123;Binding&#125;&quot; Margin=&quot;5,5,0,0&quot; IsDeletable=&quot;True&quot; DeleteCommand=&quot;&#123;Binding ElementName=userControl, Path=DataContext.CanIdChipDeleteCommand&#125;&quot; DeleteCommandParameter=&quot;&#123;Binding&#125;&quot;&gt; &lt;/materialDesign:Chip&gt; &lt;/DataTemplate&gt; &lt;/UserControl.Resources&gt;&lt;/UserControl&gt; 代码修改如上后，可以正确触发 ViewModel 中的 CanIdChipDeleteCommand 命令了。]]></content>
+      <tags>
+        <tag>wpf</tag>
+        <tag>prism</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[一条路]]></title>
     <url>%2F2019%2F04%2F26%2F20190425-thoughtsOfOneRoad%2F</url>
     <content type="text"><![CDATA[对一条路的认识从陌生到熟悉后，有时候会有一种怀念当初陌生的感觉。因为那时在这条路上，才刚开始，一切都值得憧憬。因为那时在这条路上，感觉生涩，一切都值得好奇。]]></content>

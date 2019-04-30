@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengxin23.github.io/"/>
-  <updated>2019-04-26T02:35:02.082Z</updated>
+  <updated>2019-04-30T07:50:14.162Z</updated>
   <id>https://zhengxin23.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WPF ListBoxItem DataTemplate Command无效问题</title>
+    <link href="https://zhengxin23.github.io/2019/04/30/20190430-wpf-listboxitem-datatemplate-command%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98/"/>
+    <id>https://zhengxin23.github.io/2019/04/30/20190430-wpf-listboxitem-datatemplate-command无效问题/</id>
+    <published>2019-04-30T07:21:25.000Z</published>
+    <updated>2019-04-30T07:50:14.162Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天使用wpf的prism开发项目时，需要有在ListBox中的ListBoxItem触发命令的需求，<br>在创建ListBoxItem的DataTemplate时，将prism的viewmodel中定义的command绑定到DataTemplate的Command上，<br>如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataTemplate x:Key=&quot;CanIdTemplate&quot; DataType=&quot;&#123;x:Type sys:String&#125;&quot;&gt;</span><br><span class="line">    &lt;materialDesign:Chip Content=&quot;&#123;Binding&#125;&quot; Margin=&quot;5,5,0,0&quot; IsDeletable=&quot;True&quot;</span><br><span class="line">                         DeleteCommand=&quot;&#123;Binding CanIdChipDeleteCommand&#125;&quot;&gt;</span><br><span class="line">    &lt;/materialDesign:Chip&gt;</span><br><span class="line">&lt;/DataTemplate&gt;</span><br></pre></td></tr></table></figure></p><p>但在运行时发现 <code>CanIdChipDeleteCommand</code> 没有触发。<br><a id="more"></a><br>然后将 <code>materialDesign:Chip</code> 单独放到其他控件容器里运行时可以正确触发命令。<br>经试验分析，应该是因为 DataTemplate 与 数据模板运行时加载所在的控件 的上下文是独立的，<br>而默认绑定情况下在prism的ViewModel中定义的<code>CanIdChipDeleteCommand</code>命令在 DataTemplate 中的上下文找不到。<br>可以通过修改绑定方式，将命令绑定的目标关联到与 ViewModel 所在的同一个上下文中。<br>修改代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;UserControl x:Class=&quot;VrmsServer.Desktop.Views.Functions.Configure.TboxCanIdSettingControl&quot;</span><br><span class="line">             xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;</span><br><span class="line">             xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;</span><br><span class="line">             xmlns:prism=&quot;http://prismlibrary.com/&quot;</span><br><span class="line">             xmlns:materialDesign=&quot;http://materialdesigninxaml.net/winfx/xaml/themes&quot;</span><br><span class="line">             xmlns:i=&quot;http://schemas.microsoft.com/expression/2010/interactivity&quot;</span><br><span class="line">             xmlns:converter=&quot;clr-namespace:VrmsServer.Desktop.Converter&quot;</span><br><span class="line">             xmlns:sys=&quot;clr-namespace:System;assembly=mscorlib&quot;</span><br><span class="line">             Background=&quot;#d7d7d7&quot; x:Name=&quot;userControl&quot;</span><br><span class="line">             prism:ViewModelLocator.AutoWireViewModel=&quot;True&quot;&gt;</span><br><span class="line">    &lt;UserControl.Resources&gt;</span><br><span class="line">        &lt;DataTemplate x:Key=&quot;CanIdTemplate&quot; DataType=&quot;&#123;x:Type sys:String&#125;&quot;&gt;</span><br><span class="line">            &lt;materialDesign:Chip Content=&quot;&#123;Binding&#125;&quot; Margin=&quot;5,5,0,0&quot;</span><br><span class="line">                                 IsDeletable=&quot;True&quot;</span><br><span class="line">                                 DeleteCommand=&quot;&#123;Binding ElementName=userControl, Path=DataContext.CanIdChipDeleteCommand&#125;&quot;</span><br><span class="line">                                 DeleteCommandParameter=&quot;&#123;Binding&#125;&quot;&gt;</span><br><span class="line">            &lt;/materialDesign:Chip&gt;</span><br><span class="line">        &lt;/DataTemplate&gt;</span><br><span class="line">    &lt;/UserControl.Resources&gt;</span><br><span class="line">&lt;/UserControl&gt;</span><br></pre></td></tr></table></figure></p><p>代码修改如上后，可以正确触发 <code>ViewModel</code> 中的 <code>CanIdChipDeleteCommand</code> 命令了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天使用wpf的prism开发项目时，需要有在ListBox中的ListBoxItem触发命令的需求，&lt;br&gt;在创建ListBoxItem的DataTemplate时，将prism的viewmodel中定义的command绑定到DataTemplate的Command上，&lt;br&gt;如下：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;DataTemplate x:Key=&amp;quot;CanIdTemplate&amp;quot; DataType=&amp;quot;&amp;#123;x:Type sys:String&amp;#125;&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;materialDesign:Chip Content=&amp;quot;&amp;#123;Binding&amp;#125;&amp;quot; Margin=&amp;quot;5,5,0,0&amp;quot; IsDeletable=&amp;quot;True&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                         DeleteCommand=&amp;quot;&amp;#123;Binding CanIdChipDeleteCommand&amp;#125;&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;/materialDesign:Chip&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/DataTemplate&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但在运行时发现 &lt;code&gt;CanIdChipDeleteCommand&lt;/code&gt; 没有触发。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="wpf" scheme="https://zhengxin23.github.io/tags/wpf/"/>
+    
+      <category term="prism" scheme="https://zhengxin23.github.io/tags/prism/"/>
+    
+  </entry>
   
   <entry>
     <title>一条路</title>
