@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[微信小程序-云开发云调用API没有权限(no permission)问题]]></title>
+    <url>%2F2019%2F05%2F06%2F20190506-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%91%E5%BC%80%E5%8F%91%E4%BA%91%E8%B0%83%E7%94%A8%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[今天在学习微信小程序云开发中的在云函数中使用云调用api templateMessage.send 时，在开发环境中运行报错，如下图： 查找总结原因大概有两点： 云函数所在目录缺少个权限声明文件config.json12345&#123; &quot;permissions&quot;: &#123; &quot;openapi&quot;: [&quot;templateMessage.send&quot;] &#125;&#125; 将微信开发工具升级到 v1.02.1904090 版本以上后，重新上传部署云函数 解决如上两个问题后，运行正确 另外在这过程中遇到另外一个问题，在云函数中调用 templateMessage.send 时，云函数如下：123456789101112131415161718192021222324252627282930313233343536// 云函数入口文件const cloud = require(&apos;wx-server-sdk&apos;)cloud.init()exports.main = async (event, context) =&gt; &#123; try &#123; let formId = event.formId; const result = await cloud.openapi.templateMessage.send(&#123; touser: cloud.getWXContext().OPENID, // 通过 getWXContext 获取 OPENID page: &apos;index&apos;, data: &#123; keyword1: &#123; value: &apos;氢能总部&apos; &#125;, keyword2: &#123; value: &apos;小明&apos; &#125;, keyword3: &#123; value: &apos;18:00&apos; &#125;, keyword4: &#123; value: &apos;云浮思劳&apos; &#125; &#125;, templateId: &apos;MYlxdani6r7yU0ldtZqadxxxxxxxxxxxxx&apos;, formId: formId, emphasisKeyword: &apos;keyword1.DATA&apos; &#125;) // result 结构 // &#123; errCode: 0, errMsg: &apos;openapi.templateMessage.send:ok&apos; &#125; return result &#125; catch (err) &#123; // 错误处理 // err.errCode !== 0 throw err &#125;&#125; 在开发工具中报错：openapi.templateMessage.send:fail invalid form id hint如下图： 经查找原因为：在开发工具中支行时， e.detail.formId 的值为 the formId is a mock one这个值需要在真机调试中才会正常出现，点击真机调试，并在手机上再次点击这个功能按钮，果然打印了正常的 formId。使用开发工具中的”真机调试”运行成功。]]></content>
+      <tags>
+        <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[WPF ListBoxItem DataTemplate Command无效问题]]></title>
     <url>%2F2019%2F04%2F30%2F20190430-wpf-listboxitem-datatemplate-command%E6%97%A0%E6%95%88%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[今天使用wpf的prism开发项目时，需要有在ListBox中的ListBoxItem触发命令的需求，在创建ListBoxItem的DataTemplate时，将prism的viewmodel中定义的command绑定到DataTemplate的Command上，如下：12345&lt;DataTemplate x:Key=&quot;CanIdTemplate&quot; DataType=&quot;&#123;x:Type sys:String&#125;&quot;&gt; &lt;materialDesign:Chip Content=&quot;&#123;Binding&#125;&quot; Margin=&quot;5,5,0,0&quot; IsDeletable=&quot;True&quot; DeleteCommand=&quot;&#123;Binding CanIdChipDeleteCommand&#125;&quot;&gt; &lt;/materialDesign:Chip&gt;&lt;/DataTemplate&gt; 但在运行时发现 CanIdChipDeleteCommand 没有触发。然后将 materialDesign:Chip 单独放到其他控件容器里运行时可以正确触发命令。经试验分析，应该是因为 DataTemplate 与 数据模板运行时加载所在的控件 的上下文是独立的，而默认绑定情况下在prism的ViewModel中定义的CanIdChipDeleteCommand命令在 DataTemplate 中的上下文找不到。可以通过修改绑定方式，将命令绑定的目标关联到与 ViewModel 所在的同一个上下文中。修改代码如下：1234567891011121314151617181920&lt;UserControl x:Class=&quot;VrmsServer.Desktop.Views.Functions.Configure.TboxCanIdSettingControl&quot; xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot; xmlns:prism=&quot;http://prismlibrary.com/&quot; xmlns:materialDesign=&quot;http://materialdesigninxaml.net/winfx/xaml/themes&quot; xmlns:i=&quot;http://schemas.microsoft.com/expression/2010/interactivity&quot; xmlns:converter=&quot;clr-namespace:VrmsServer.Desktop.Converter&quot; xmlns:sys=&quot;clr-namespace:System;assembly=mscorlib&quot; Background=&quot;#d7d7d7&quot; x:Name=&quot;userControl&quot; prism:ViewModelLocator.AutoWireViewModel=&quot;True&quot;&gt; &lt;UserControl.Resources&gt; &lt;DataTemplate x:Key=&quot;CanIdTemplate&quot; DataType=&quot;&#123;x:Type sys:String&#125;&quot;&gt; &lt;materialDesign:Chip Content=&quot;&#123;Binding&#125;&quot; Margin=&quot;5,5,0,0&quot; IsDeletable=&quot;True&quot; DeleteCommand=&quot;&#123;Binding ElementName=userControl, Path=DataContext.CanIdChipDeleteCommand&#125;&quot; DeleteCommandParameter=&quot;&#123;Binding&#125;&quot;&gt; &lt;/materialDesign:Chip&gt; &lt;/DataTemplate&gt; &lt;/UserControl.Resources&gt;&lt;/UserControl&gt; 代码修改如上后，可以正确触发 ViewModel 中的 CanIdChipDeleteCommand 命令了。]]></content>
       <tags>
-        <tag>wpf</tag>
         <tag>prism</tag>
+        <tag>wpf</tag>
       </tags>
   </entry>
   <entry>

@@ -69,6 +69,65 @@
     
     
       
+        <article id="post-20190506-微信小程序-云开发云调用失败问题" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/05/06/20190506-微信小程序-云开发云调用失败问题/">微信小程序-云开发云调用API没有权限(no permission)问题</a>
+    </h2>
+  
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/05/06/20190506-微信小程序-云开发云调用失败问题/" class="article-date">
+  <time datetime="2019-05-06T12:26:06.000Z" itemprop="datePublished">2019-05-06</time>
+</a>
+        
+      </div>
+    
+    <!--<div style="width:100%;border-bottom: 1px solid #969696;margin-top: 10px;"></div>-->
+    <div class="article-entry" itemprop="articleBody">
+      
+
+      
+
+      
+        <p>今天在学习微信小程序云开发中的在云函数中使用云调用api <code>templateMessage.send</code> 时，在开发环境中运行报错，<br>如下图：<br><img src="https://i.loli.net/2019/05/06/5cd028aa7ff76.png" alt></p>
+<p>查找总结原因大概有两点：</p>
+<ol>
+<li>云函数所在目录缺少个权限声明文件<br>config.json<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;permissions&quot;: &#123;</span><br><span class="line">    &quot;openapi&quot;: [&quot;templateMessage.send&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+        
+          <a class="article-more-link" href="/2019/05/06/20190506-微信小程序-云开发云调用失败问题/">阅读全文...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://zhengxin23.github.io/2019/05/06/20190506-微信小程序-云开发云调用失败问题/" data-id="cjvccqfnj000gugtu2dubywmp" class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
         <article id="post-20190430-wpf-listboxitem-datatemplate-command无效问题" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -107,7 +166,7 @@
       
     </p></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/30/20190430-wpf-listboxitem-datatemplate-command无效问题/" data-id="cjv3ho8z10008g8tutv381smz" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/30/20190430-wpf-listboxitem-datatemplate-command无效问题/" data-id="cjvccqfo60010ugtu0s4qtiod" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prism/">prism</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wpf/">wpf</a></li></ul>
 
@@ -159,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/26/20190425-thoughtsOfOneRoad/" data-id="cjv3ho8yy0005g8tuk7ubprux" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/26/20190425-thoughtsOfOneRoad/" data-id="cjvccqfmh000fugturywn1h77" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随记/">随记</a></li></ul>
 
@@ -216,7 +275,7 @@
       
     </p></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/16/20190416-dbKoda连接mongodb出错/" data-id="cjv3ho8z20009g8tup21tcqqn" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/16/20190416-dbKoda连接mongodb出错/" data-id="cjvccqfmf000cugtup4jjy5a8" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dbKoda/">dbKoda</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li></ul>
 
@@ -281,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/08/20190402-read-微信小程序运营实战/" data-id="cjv3ho8zz000zg8tujzaavf31" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/08/20190402-read-微信小程序运营实战/" data-id="cjvccqfiy000augtu9542v7nc" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读书/">读书</a></li></ul>
 
@@ -338,7 +397,7 @@
       
     </p></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/07/20190407-dotnetcore-app-first/" data-id="cjv3ho8ze000rg8tubrp2qwst" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/07/20190407-dotnetcore-app-first/" data-id="cjvccqfnl000iugtuxc5ckfom" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NetCore/">.NetCore</a></li></ul>
 
@@ -395,7 +454,7 @@
       
     </p></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/06/20190406-benchmarkDotnet/" data-id="cjv3ho8zx000xg8tu4u8ovjdu" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/06/20190406-benchmarkDotnet/" data-id="cjvccqfo3000wugtuoiakpwsq" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Net/">.Net</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BenchmarkDotnet/">BenchmarkDotnet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能/">性能</a></li></ul>
 
@@ -450,7 +509,7 @@
       
     </p></blockquote></div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/05/20190405-ant-design-pro脚手架第一次使用及问题/" data-id="cjv3ho8yv0003g8tuxnlhb67u" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/05/20190405-ant-design-pro脚手架第一次使用及问题/" data-id="cjvccqfir0005ugtu5scsh67u" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ant-design/">ant-design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 
@@ -507,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/04/01/2019040101-git-create-repository/" data-id="cjv3ho8yx0004g8tufuc8mbdi" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/04/01/2019040101-git-create-repository/" data-id="cjvccqfip0003ugtuzmd49jnx" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
 
@@ -561,65 +620,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/03/05/20190305-python-函数参数前面单星号和双星号的区别/" data-id="cjv3ho9010011g8tue62lugyg" class="article-share-link">分享</a>
+      <a data-url="https://zhengxin23.github.io/2019/03/05/20190305-python-函数参数前面单星号和双星号的区别/" data-id="cjvccqfo4000yugtubrgfvepz" class="article-share-link">分享</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        <article id="post-20190106-微信小程序设置box-shadow阴影在真机上无效" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/01/06/20190106-微信小程序设置box-shadow阴影在真机上无效/">微信小程序设置box-shadow阴影在真机上无效</a>
-    </h2>
-  
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/01/06/20190106-微信小程序设置box-shadow阴影在真机上无效/" class="article-date">
-  <time datetime="2019-01-06T12:35:32.000Z" itemprop="datePublished">2019-01-06</time>
-</a>
-        
-      </div>
-    
-    <!--<div style="width:100%;border-bottom: 1px solid #969696;margin-top: 10px;"></div>-->
-    <div class="article-entry" itemprop="articleBody">
-      
-
-      
-
-      
-        <p>微信小程序设置box-shadow阴影无效，如下：</p>
-<p><code>box-shadow: 0rpx 10rpx 50rpx 10rpx #5555551A;</code></p>
-<p>在开发环境上有效，但在真机上无效。<br>
-        
-          <a class="article-more-link" href="/2019/01/06/20190106-微信小程序设置box-shadow阴影在真机上无效/">阅读全文...</a>
-        
-      
-    </p></div>
-    <footer class="article-footer">
-      <a data-url="https://zhengxin23.github.io/2019/01/06/20190106-微信小程序设置box-shadow阴影在真机上无效/" data-id="cjv3ho8yr0001g8tuhnlup61c" class="article-share-link">分享</a>
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信小程序/">微信小程序</a></li></ul>
 
     </footer>
 
