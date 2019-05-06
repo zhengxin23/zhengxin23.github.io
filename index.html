@@ -99,12 +99,7 @@
       
 
       
-        <p>今天在学习微信小程序云开发中的在云函数中使用云调用api <code>templateMessage.send</code> 时，在开发环境中运行报错，<br>如下图：<br><img src="https://i.loli.net/2019/05/06/5cd028aa7ff76.png" alt></p>
-<p>查找总结原因大概有两点：</p>
-<ol>
-<li>云函数所在目录缺少个权限声明文件<br>config.json<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;permissions&quot;: &#123;</span><br><span class="line">    &quot;openapi&quot;: [&quot;templateMessage.send&quot;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+        <p>今天在学习微信小程序云开发中的在云函数中使用云调用api <code>templateMessage.send</code> 时，在开发环境中运行报错：function has no permission to call this API<br>如下图：<br><img src="https://i.loli.net/2019/05/06/5cd028aa7ff76.png" alt></p>
         
           <a class="article-more-link" href="/2019/05/06/20190506-微信小程序-云开发云调用失败问题/">阅读全文...</a>
         
