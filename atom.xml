@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengxin23.github.io/"/>
-  <updated>2019-05-06T12:44:10.811Z</updated>
+  <updated>2019-05-24T14:45:17.296Z</updated>
   <id>https://zhengxin23.github.io/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20190524-Java-Java10的新特性</title>
+    <link href="https://zhengxin23.github.io/2019/05/24/20190524-Java-Java10%E7%9A%84%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <id>https://zhengxin23.github.io/2019/05/24/20190524-Java-Java10的新特性/</id>
+    <published>2019-05-24T14:45:17.000Z</published>
+    <updated>2019-05-24T14:45:17.296Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>微信小程序-云开发云调用API没有权限(no permission)问题</title>
