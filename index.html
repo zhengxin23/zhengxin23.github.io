@@ -103,48 +103,9 @@
 <p>在调试 ant-design-pro 项目时里面使用 fetch 方法进行 api 请求</p>
 </blockquote>
 <p>想通过保持与 ant-design-pro 一致的api请求方式进行获取自己系统中的数据，<br>请求代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fetch(&apos;http://www.demo.com:9001/api/Tbox/GetAllVehicleFactoryWithUploadDateTimeDesc&apos;).then(res =&gt; &#123; </span><br><span class="line">    console.log(res);</span><br><span class="line">    return res.json();</span><br><span class="line">&#125;).then(json =&gt; &#123;</span><br><span class="line">    console.log(&apos;获取的结果&apos;, json);</span><br><span class="line">    return json;</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">    console.log(&apos;请求错误&apos;, err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>执行结果：<br>Access to fetch at ‘<a href="http://183.237.52.119:9001/api/Tbox/GetAllVehicleFactoryWithUploadDateTimeDesc&#39;" target="_blank" rel="noopener">http://183.237.52.119:9001/api/Tbox/GetAllVehicleFactoryWithUploadDateTimeDesc&#39;</a> from origin ‘<a href="http://localhost:8000&#39;" target="_blank" rel="noopener">http://localhost:8000&#39;</a> has been blocked by CORS policy: No ‘Access-Control-Allow-Origin’ header is present on the requested resource. If an opaque response serves your needs, set the request’s mode to ‘no-cors’ to fetch the resource with CORS disabled.<br>VM20690:8 请求错误 TypeError: Failed to fetch</p>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
-<p>经查资料分析，浏览器只允许请求当前域的资源，而对其他域的资源表示不信任。</p>
-</blockquote>
-<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>cors是”Cross-Origin Resource Sharing”的简称，是实现跨域的一种方式，相对于其他跨域方式，比较灵活，而且不限制发请求使用的method，以下从几种情况分析cors使用。<br>那怎么才算跨域呢？</p>
-<ul>
-<li>请求协议http,https的不同</li>
-<li>域domain的不同</li>
-<li>端口port的不同</li>
-</ul>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p><strong>1. 前端代码</strong><br>添加请求参数， mode : ‘cors’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fetch(&apos;http://www.demo.com:9001/api/Tbox/GetAllVehicleFactoryWithUploadDateTimeDesc&apos;,&#123;</span><br><span class="line">    method: &apos;GET&apos;,</span><br><span class="line">    mode: &apos;cors&apos;</span><br><span class="line">&#125;).then(res =&gt; &#123; </span><br><span class="line">    console.log(res);</span><br><span class="line">    return res.json();</span><br><span class="line">&#125;).then(json =&gt; &#123;</span><br><span class="line">    console.log(&apos;获取的结果&apos;, json);</span><br><span class="line">    return json;</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">    console.log(&apos;请求错误&apos;, err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. 后端设置</strong><br>以IIS为示例<br>设置HTTP响应标头<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Credentials : true</span><br><span class="line">Access-Control-Allow-Headers : *</span><br><span class="line">Access-Control-Allow-Methods : PUT,POST,GET,DELETE,OPTIONS</span><br><span class="line">Access-Control-Allow-Origin : http://localhost:8000</span><br></pre></td></tr></table></figure></p>
-<p>说明：</p>
-<ol>
-<li><a href="http://localhost:8000" target="_blank" rel="noopener">http://localhost:8000</a> 为你所在运行环境执行请求的地址</li>
-<li>对于附带身份凭证的请求，服务器不得设置 Access-Control-Allow-Origin 的值为“*”。这是因为请求的首部中携带了 Cookie 信息，如果 Access-Control-Allow-Origin 的值为“*”，请求将会失败。而将 Access-Control-Allow-Origin 的值设置为 <a href="http://localhost:8000，则请求将成功执行。" target="_blank" rel="noopener">http://localhost:8000，则请求将成功执行。</a></li>
-</ol>
-<h3 id="其他参数说明"><a href="#其他参数说明" class="headerlink" title="其他参数说明"></a>其他参数说明</h3><ul>
-<li><p><strong>request跨域头部介绍</strong></p>
-<ul>
-<li>Access-Control-Allow-Origin：可以允许哪些客户端来访问，指可以是*，也可以是某个域名或者用逗号隔开的域名列表。</li>
-<li>Access-Control-Expose-Headers： 浏览器可以访问的一些头部。</li>
-<li>Access-Control-Max-Age：预检查结果可以缓存的问题</li>
-<li>Access-Control-Allow-Methods：指定客户端发请求可以使用的方法</li>
-<li>Access-Control-Allow-Headers：指定客户端发请求可以使用的头部。</li>
-<li>Access-Control-Allow-Credentials: 指定客户端是否可以携带cookie等认证信息(前端fetch设置withCredentials：true进行发送cookie),如果是简单请求等跨域得确保此response头设置为true。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>response头部</strong></p>
-<ul>
-<li>Access-Control-Allow-Origin：可以允许哪些客户端来访问，指可以是*，也可以是某个域名或者用逗号隔开的域名列表。</li>
-<li>Access-Control-Expose-Headers： 浏览器可以访问的一些头部。</li>
-<li>Access-Control-Max-Age：预检查结果可以缓存的问题</li>
-<li>Access-Control-Allow-Methods：指定客户端发请求可以使用的方法</li>
-<li>Access-Control-Allow-Headers：指定客户端发请求可以使用的头部。</li>
-<li>Access-Control-Allow-Credentials: 指定客户端是否可以携带cookie等认证信息(前端fetch设置withCredentials：true进行发送cookie),如果是简单请求等跨域得确保此response头设置为true。</li>
-</ul>
-</li>
-</ul>
-
+        
+          <a class="article-more-link" href="/2019/05/28/20190528-javascript-fetch跨域请求问题/">阅读全文...</a>
+        
       
     </div>
     <footer class="article-footer">
