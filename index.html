@@ -104,56 +104,9 @@
 </blockquote>
 <h3 id="1-测试"><a href="#1-测试" class="headerlink" title="1. 测试"></a>1. 测试</h3><p>一时好奇想简单测试下迭代、流、并行流的运行效率。</p>
 <p>测试环境：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">计算机：DELL Inspiron 7572</span><br><span class="line">处理器：Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz 1.99GHz</span><br><span class="line">内存：16GB</span><br><span class="line">系统类型：Window10 64位</span><br></pre></td></tr></table></figure></p>
-<p>测试代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">package study;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.nio.charset.StandardCharsets;</span><br><span class="line">import java.nio.file.Files;</span><br><span class="line">import java.nio.file.Paths;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class CountLongWords &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        //for 效率测试</span><br><span class="line">        long from = System.currentTimeMillis();</span><br><span class="line">        String contents = new String(Files.readAllBytes(</span><br><span class="line">                Paths.get(&quot;test.txt&quot;)), StandardCharsets.UTF_8);</span><br><span class="line">        List&lt;String&gt; words = Arrays.asList(contents.split(&quot;\\PL+&quot;));</span><br><span class="line">        long count = 0;</span><br><span class="line">        for (String w : words)&#123;</span><br><span class="line">            if (w.length() &gt; 5)&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        long to = System.currentTimeMillis();</span><br><span class="line">        System.out.println(&quot;long word count : &quot; + count);</span><br><span class="line">        System.out.println(&quot;time1 : &quot; + (to - from) + &quot; ms&quot;);</span><br><span class="line"></span><br><span class="line">        //stream 效率测试</span><br><span class="line">        from = System.currentTimeMillis();</span><br><span class="line">        String contents1 = new String(Files.readAllBytes(</span><br><span class="line">                Paths.get(&quot;test1.txt&quot;)), StandardCharsets.UTF_8);</span><br><span class="line">        List&lt;String&gt; words1 = Arrays.asList(contents.split(&quot;\\PL+&quot;));</span><br><span class="line">        count = words1.stream().filter(w -&gt; w.length() &gt; 5).count();</span><br><span class="line">        to = System.currentTimeMillis();</span><br><span class="line">        System.out.println(&quot;stream long word count : &quot; + count);</span><br><span class="line">        System.out.println(&quot;time2 : &quot; + (to - from) + &quot; ms&quot;);</span><br><span class="line"></span><br><span class="line">        //parallelStream 效率测试</span><br><span class="line">        from = System.currentTimeMillis();</span><br><span class="line">        String contents2 = new String(Files.readAllBytes(</span><br><span class="line">                Paths.get(&quot;test2.txt&quot;)), StandardCharsets.UTF_8);</span><br><span class="line">        List&lt;String&gt; words2 = Arrays.asList(contents.split(&quot;\\PL+&quot;));</span><br><span class="line">        count = words2.parallelStream().filter(w -&gt; w.length() &gt; 5).count();</span><br><span class="line">        to = System.currentTimeMillis();</span><br><span class="line">        System.out.println(&quot;parallelStream long word count : &quot; + count);</span><br><span class="line">        System.out.println(&quot;time3 : &quot; + (to - from) + &quot; ms&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>其中：test.txt / test1.txt / test2.txt 是一样的英文内容文本，大小86.2MB。</p>
-<h3 id="2-结果"><a href="#2-结果" class="headerlink" title="2. 结果"></a>2. 结果</h3><table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left">测试1</th>
-<th style="text-align:left">测试2</th>
-<th style="text-align:left">测试3</th>
-<th style="text-align:left">测试4</th>
-<th style="text-align:left">测试5</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">迭代</td>
-<td style="text-align:left">2601 ms</td>
-<td style="text-align:left">2633 ms</td>
-<td style="text-align:left">2529 ms</td>
-<td style="text-align:left">2602 ms</td>
-<td style="text-align:left">2707 ms</td>
-</tr>
-<tr>
-<td style="text-align:left">串行流</td>
-<td style="text-align:left">1931 ms</td>
-<td style="text-align:left">1932 ms</td>
-<td style="text-align:left">1923 ms</td>
-<td style="text-align:left">1993 ms</td>
-<td style="text-align:left">1939 ms</td>
-</tr>
-<tr>
-<td style="text-align:left">并行流</td>
-<td style="text-align:left">1941 ms</td>
-<td style="text-align:left">2134 ms</td>
-<td style="text-align:left">2136 ms</td>
-<td style="text-align:left">2256 ms</td>
-<td style="text-align:left">2151 ms</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h3><p>使用流(Stream)或并行流(parallelStream)效率比循环迭代的效率高</p>
-<h3 id="4-拓展"><a href="#4-拓展" class="headerlink" title="4. 拓展"></a>4. 拓展</h3><p>按理说并行效率应该要比串行效率要高，但仔细看测试结果，可以注意到串行流的效率却比并行流的效率要高一些。</p>
-<p>经查阅资料，使用并行流(parallelStream)时需要注意其特性，并不是所有情景下并行流(parallelStream)都可以发挥其优势。</p>
-<p>从java8开始，并行编程变得很容易，通过并行流（parallelStream），可以很轻松的实现多线程并行处理。但是，这里面有个性能“陷阱”，如果不注意，使用并行流的效果反而更差，这个陷阱是什么呢？</p>
-<p>这个陷阱就是，并行流默认都是用同一个默认的ForkJoinPool，这个ForkJoinPool的线程数和CPU的核心数相同。如果是计算密集型的操作，直接使用是没有问题的，因为这个ForkJoinPool会将所有的CPU打满，系统资源是没有浪费的，但是，如果其中还有IO操作或等待操作，这个默认的ForkJoinPool只能消耗一部分CPU，而另外的并行流因为获取不到该ForkJoinPool的使用权，性能将大大降低。可见，默认的ForkJoinPool<strong>必须只能</strong>处理计算密集型的任务。</p>
-<p>那么，对应非计算密集型的任务，改怎么处理呢？ 这就需要我们使用自己创建的ForkJoinPool来执行任务，下面给出实例代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ForkJoinPool forkJoinPool = new ForkJoinPool(8); </span><br><span class="line">forkJoinPool.submit(()-&gt;&#123;</span><br><span class="line">    tasks.parallelStream().forEach(t-&gt;&#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            String gdsstatus=transactionService.GetTransInfo(url, t.getTask_id());</span><br><span class="line">            checkStatus(t.getTask_id(),t.getTask_status(),gdsstatus);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            System.out.println(&quot;EXCEPTION OCCOR IN TASK:&quot;+t.getTask_id());</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;NO:&quot;+count.getAndIncrement()+&quot; is done&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>参考：<a href="https://blog.csdn.net/hohojiang/article/details/60575106" target="_blank" rel="noopener">java并行流的性能“陷阱”</a></p>
-</blockquote>
-
+        
+          <a class="article-more-link" href="/2019/06/24/20190624-java-迭代-流-并行流性能简单测试/">阅读全文...</a>
+        
       
     </div>
     <footer class="article-footer">
