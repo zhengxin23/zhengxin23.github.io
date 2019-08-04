@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zhengxin23.github.io/"/>
-  <updated>2019-06-24T09:13:43.028Z</updated>
+  <updated>2019-08-04T08:19:57.412Z</updated>
   <id>https://zhengxin23.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2020年设计趋势(交互篇)</title>
+    <link href="https://zhengxin23.github.io/2019/08/03/2020DesignTrend-Interactive/"/>
+    <id>https://zhengxin23.github.io/2019/08/03/2020DesignTrend-Interactive/</id>
+    <published>2019-08-03T03:37:37.000Z</published>
+    <updated>2019-08-04T08:19:57.412Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-模态展示"><a href="#1-模态展示" class="headerlink" title="1. 模态展示"></a>1. 模态展示</h3><p>模态面板拉起时，原有的页面有一个纵深效果，以灰色状态显示，防止用户和它们发生交互。通过滑动操作下位关闭，适用于单手操作，专为大屏服务。<br><img src="http://wx1.sinaimg.cn/mw690/7bfb08bfgy1g5npei5q1fg20go09dwja.gif" alt="模态展示"><br><a id="more"></a><br>在系统邮件、日历、通讯录、Apple Music、信息Animoji等自带应用中，模态面板得到了广泛应用。<br><img src="http://wx1.sinaimg.cn/mw690/7bfb08bfgy1g5npju5r2yg20hs0cgnc4.gif" alt="640 _1_.gif"></p><h3 id="2-专注下半部分"><a href="#2-专注下半部分" class="headerlink" title="2. 专注下半部分"></a>2. 专注下半部分</h3><p>夸克浏览器是专注下半部分做的最好的一个，夸克并没有像 Safari、Chrome 那样把搜索框放在顶部，而是将整合后的搜索栏放在了用户更容易操作的屏幕下半部分。<br><img src="http://wx1.sinaimg.cn/mw690/7bfb08bfgy1g5npedyw05g20jg0jgu0x.gif" alt="640 _2_.gif"></p><h3 id="3-分层内容"><a href="#3-分层内容" class="headerlink" title="3. 分层内容"></a>3. 分层内容</h3><p>分层内容是基于动作菜单，弹出分层内容。分层内容的展现形式可以减少页面跳转，让用户保持在最原始的环境中。并且主要操作交互位于界面下半部分，触手可及。<br><img src="http://wx1.sinaimg.cn/mw690/7bfb08bfgy1g5npe6dv5zg20go0b4x6p.gif" alt="640 _3_.gif"></p><h4 id="悬停分层"><a href="#悬停分层" class="headerlink" title="悬停分层"></a>悬停分层</h4><p>在网易云音乐、即刻、飞聊等应用中，采用了悬停分层。顶部展示的是介绍性内容，随着页面下滑，介绍内容隐藏，同时功能栏将置顶悬停，展示的内容区域大大增加。<br><img src="http://wx3.sinaimg.cn/mw690/7bfb08bfgy1g5npe87lj9g20hs08cnpe.gif" alt><br><img src="http://wx2.sinaimg.cn/mw690/7bfb08bfgy1g5npebh5fzj20xh0p1atv.jpg" alt></p><h3 id="4-连续性页面"><a href="#4-连续性页面" class="headerlink" title="4. 连续性页面"></a>4. 连续性页面</h3><p>连续性页面的转换效果可以很好记住产品路线，加强了页面的层级关系。同时，流畅的动画转换效果，带来了更连贯的用户体验。<br>App Store 和 Behance，以及最近发布的豆瓣 FM 6.0，都采用了这种方式。<br><img src="http://wx3.sinaimg.cn/mw690/7bfb08bfgy1g5npecraueg20go07ux6p.gif" alt></p><h3 id="5-全屏展示"><a href="#5-全屏展示" class="headerlink" title="5. 全屏展示"></a>5. 全屏展示</h3><p>在Keep App上，设计了一个全屏展示的评分提示。形式新颖，加上背景图的气氛，让人想去评分的意愿大大增加。<br>同样，Airbnb的系统通知提示也是采用的全屏展示，这是一个趋势，值得我们去关注。<br><img src="http://wx2.sinaimg.cn/mw690/7bfb08bfgy1g5npdxi562j20oj0p1wsv.jpg" alt></p><h3 id="6-快捷验证"><a href="#6-快捷验证" class="headerlink" title="6. 快捷验证"></a>6. 快捷验证</h3><p>近两年几乎所有的 App 都会推荐首先使用手机号+短信验证码的方式注册/登录，同时也会接入像微信、QQ、支付宝这样的三方登录。<br>在 WWDC 2019 上，苹果也给我们带来了 “使用苹果账号登录”，几乎所有的苹果设备都会登录 Apple ID。因此，我们可以在不久的将来，通过苹果账号，就可以直接登录所有的 App，是不是很方便？<br><img src="http://wx3.sinaimg.cn/mw690/7bfb08bfgy1g5npdyvjapj20yu0opwko.jpg" alt></p><h4 id="号码识别"><a href="#号码识别" class="headerlink" title="号码识别"></a>号码识别</h4><p>网易易盾的号码识别，可以自动获取当前开启流量的SIM卡号码，一键点击即可完成注册、登录操作。减少手机号输入、短信验证码等待时间等传统步骤，提升关键环节转化率。<br><img src="http://wx2.sinaimg.cn/mw690/7bfb08bfgy1g5npe6uwbaj20xd0onjvv.jpg" alt></p><h3 id="7-语音交互"><a href="#7-语音交互" class="headerlink" title="7. 语音交互"></a>7. 语音交互</h3><p>近年来，智能语音技术在很多场景得到了应用，微软的 Cortana，苹果的 Siri、谷歌的 Assistant。在引入深度学习后，语音助手可以在训练中越来越强，吐词更连贯。<br><img src="http://wx1.sinaimg.cn/mw690/7bfb08bfgy1g5npedyw05g20jg0jgu0x.gif" alt><br>在5月的开发者大会上，谷歌展示了其人工智能与语音识别的 Live Relay 技术。其能够为不便应答电话的用户，提供基于实时语音 / 文字互转的通话支持。对于聋哑人来说，这绝对是一项实用的功能。<br><img src="http://wx4.sinaimg.cn/mw690/7bfb08bfgy1g5npeer2h9g20hr0adqsx.gif" alt><br>事实上，Live Relay也能帮助到一般人，例如当我们需要接听重要电话，但却无法离开当下所进行事项，Live Relay在此时就能派上用场，透过输入文字的方式，接听重要来电。<br>最方便的是，Live Relay还可整合即时的翻译功能，这在与外国人士沟通时起了很大的帮助作用，可说是另外一种「无障碍功能」。</p><h3 id="8-AR增强现实"><a href="#8-AR增强现实" class="headerlink" title="8. AR增强现实"></a>8. AR增强现实</h3><ul><li><p>WANNA KICKS 通过AR技术「试鞋」<br>通过AR增强现实技术与智能手机相机的结合，帮助你看到YEEZY BOOST 350等运动鞋「穿」在自己脚上的效果，它甚至还能模拟出鞋子在光线不同环境下的各种效果。<br><img src="http://wx3.sinaimg.cn/mw690/7bfb08bfgy1g5npegm6pqg20cs077npe.gif" alt></p></li><li><p>小程序AR+口红试色<br>昨天，首个支持AR动态试妆的小程序“阿玛尼美妆”同步更新上线。基于小程序基础能力和谷歌TensorFlow机器学习开源平台支持，欧莱雅集团开发了AR动态试妆能力。相比以前上传照片的试色方式，AR动态试妆让试色更真实。<br><img src="http://wx1.sinaimg.cn/mw690/7bfb08bfgy1g5npe8zh9nj20c80p4wrl.jpg" alt><br>AR 使用在网页设计或应用程序领域，它能够自然地将虚拟与现实结合，带来身临其境的新体验。</p></li></ul><h3 id="9-多窗口预览"><a href="#9-多窗口预览" class="headerlink" title="9. 多窗口预览"></a>9. 多窗口预览</h3><p><img src="http://wx3.sinaimg.cn/mw690/7bfb08bfgy1g5npehnbpng20go0c8hdt.gif" alt><br>在QQ最新的版本中，列表页面长按消息，会弹出多窗口模式，消息可以来回切换，类似于iOS 后台切换模式。在会话窗口长按任意地方，也会呼出多窗口模式。</p><h3 id="10-总结"><a href="#10-总结" class="headerlink" title="10. 总结"></a>10. 总结</h3><p>科技发展给设计产生的影响是巨大的，让我更深刻的认识到作为设计师的责任。这些设计趋势有意或无意地将帮助用户得到更好的产品体验，我们期待2020年的设计将如何演变。</p><blockquote><p>原文链接： <a href="https://mp.weixin.qq.com/s/vXIkRzYSgEIh2_zQQEJDAQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/vXIkRzYSgEIh2_zQQEJDAQ</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-模态展示&quot;&gt;&lt;a href=&quot;#1-模态展示&quot; class=&quot;headerlink&quot; title=&quot;1. 模态展示&quot;&gt;&lt;/a&gt;1. 模态展示&lt;/h3&gt;&lt;p&gt;模态面板拉起时，原有的页面有一个纵深效果，以灰色状态显示，防止用户和它们发生交互。通过滑动操作下位关闭，适用于单手操作，专为大屏服务。&lt;br&gt;&lt;img src=&quot;http://wx1.sinaimg.cn/mw690/7bfb08bfgy1g5npei5q1fg20go09dwja.gif&quot; alt=&quot;模态展示&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="Design" scheme="https://zhengxin23.github.io/tags/Design/"/>
+    
+  </entry>
   
   <entry>
     <title>Java中迭代、流(stream)、并行流(parallelStream)效率简单测试</title>
